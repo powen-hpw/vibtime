@@ -107,10 +107,7 @@ dependencies {
     // Material Components
     implementation(libs.material)
 
-    // Room Database (for future use)
-    implementation(libs.androidx.room.runtime)
-    implementation(libs.androidx.room.ktx)
-    kapt(libs.androidx.room.compiler)
+    // Room Database removed - using native string resources instead
 
     // WorkManager (for background tasks)
     implementation(libs.androidx.work.runtime)

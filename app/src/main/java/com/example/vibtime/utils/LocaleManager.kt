@@ -34,6 +34,7 @@ object LocaleManager {
             "zh-CN" -> Locale("zh", "CN")
             "en" -> Locale("en", "US")
             "ja" -> Locale("ja", "JP")
+            "es" -> Locale("es", "ES")
             else -> {
                 android.util.Log.w(TAG, "Unknown language: $finalCode, using zh-TW")
                 Locale("zh", "TW")
@@ -84,6 +85,7 @@ object LocaleManager {
             systemLocale.language == "zh" && (systemLocale.country.isEmpty() || systemLocale.country == "HK") -> "zh-TW" // 香港和未指定國家的中文預設使用繁體中文
             systemLocale.language == "en" -> "en"
             systemLocale.language == "ja" -> "ja"
+            systemLocale.language == "es" -> "es"
             else -> {
                 // 記錄系統語言以便調試
                 android.util.Log.d(TAG, "System language: ${systemLocale.language}-${systemLocale.country}")
@@ -93,6 +95,7 @@ object LocaleManager {
                     "zh" -> "zh-TW" // 任何其他中文變體使用繁體中文
                     "en" -> "en"    // 任何英文變體使用英文
                     "ja" -> "ja"    // 日文
+                    "es" -> "es"    // 西班牙文
                     else -> "en"    // 其他語言預設使用英文
                 }
             }
@@ -108,7 +111,8 @@ object LocaleManager {
             LanguageOption("zh-TW", context.getString(R.string.language_zh_tw), "🇹🇼"),
             LanguageOption("en", context.getString(R.string.language_en), "🇺🇸"),
             LanguageOption("zh-CN", context.getString(R.string.language_zh_cn), "🇨🇳"),
-            LanguageOption("ja", context.getString(R.string.language_ja), "🇯🇵")
+            LanguageOption("ja", context.getString(R.string.language_ja), "🇯🇵"),
+            LanguageOption("es", context.getString(R.string.language_es), "🇪🇸")
         )
     }
     
@@ -122,6 +126,7 @@ object LocaleManager {
             "en" -> context.getString(R.string.language_en)
             "zh-CN" -> context.getString(R.string.language_zh_cn)
             "ja" -> context.getString(R.string.language_ja)
+            "es" -> context.getString(R.string.language_es)
             else -> context.getString(R.string.language_zh_tw)
         }
     }
@@ -130,7 +135,7 @@ object LocaleManager {
      * 檢查是否為支援的語言（不包含 "system"，僅檢查實際語言代碼）
      */
     fun isSupportedLanguage(languageCode: String): Boolean {
-        return languageCode == "zh-TW" || languageCode == "zh-CN" || languageCode == "en" || languageCode == "ja"
+        return languageCode == "zh-TW" || languageCode == "zh-CN" || languageCode == "en" || languageCode == "ja" || languageCode == "es"
     }
     
     /**
@@ -160,6 +165,7 @@ object LocaleManager {
             "zh-CN" -> Locale("zh", "CN")
             "en" -> Locale("en", "US")
             "ja" -> Locale("ja", "JP")
+            "es" -> Locale("es", "ES")
             else -> {
                 android.util.Log.w(TAG, "Unknown language: $finalCode, using zh-TW")
                 Locale("zh", "TW")

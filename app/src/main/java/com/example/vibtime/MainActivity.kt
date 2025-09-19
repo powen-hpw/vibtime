@@ -10,8 +10,7 @@ import com.example.vibtime.ads.AdManager
 import com.example.vibtime.databinding.ActivityMainBinding
 import com.example.vibtime.utils.LocaleManager
 import com.example.vibtime.utils.ExactAlarmManager
-import com.example.vibtime.data.database.VibtimeDatabase
-import com.example.vibtime.data.repository.LocalizationRepository
+// Removed Room database imports - using native string resources
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -30,7 +29,7 @@ class MainActivity : AppCompatActivity() {
     }
     
     private lateinit var binding: ActivityMainBinding
-    private lateinit var localizationRepository: LocalizationRepository
+    // Removed localizationRepository - using native string resources
     
     override fun onCreate(savedInstanceState: Bundle?) {
         // 在 attachBaseContext 中已經設定語言，這裡不需要重複設定
@@ -44,7 +43,7 @@ class MainActivity : AppCompatActivity() {
         setupNavigation()
         setupAds()
         checkAndroid14Compliance()
-        initializeLocalization()
+        // Removed initializeLocalization() - using native string resources
     }
     
     private fun setupNavigation() {
@@ -147,22 +146,7 @@ class MainActivity : AppCompatActivity() {
         LocaleManager.applyLanguageToApp(this, savedLanguage)
     }
     
-    /**
-     * 初始化本地化系統
-     */
-    private fun initializeLocalization() {
-        val database = VibtimeDatabase.getDatabase(this)
-        localizationRepository = LocalizationRepository(database)
-        
-        // 初始化資料庫
-        lifecycleScope.launch(Dispatchers.IO) {
-            localizationRepository.initialize()
-            
-            // 載入當前語言的本地化字串
-            val currentLanguage = LocaleManager.getCurrentLanguage(this@MainActivity)
-            localizationRepository.setCurrentLanguage(currentLanguage)
-        }
-    }
+    // Removed initializeLocalization() - using native string resources instead
     
     /**
      * 檢查 Android 14 合規性

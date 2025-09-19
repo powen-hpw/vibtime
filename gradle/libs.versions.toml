@@ -9,7 +9,7 @@ appcompat = "1.6.1"
 material = "1.10.0"
 navigation = "2.7.6"
 lifecycle = "2.7.0"
-room = "2.6.1"
+# room = "2.6.1" # Removed - using native string resources
 glide = "4.16.0"
 googleAds = "22.6.0"
 workManager = "2.9.0"
@@ -30,10 +30,10 @@ androidx-navigation-ui = { group = "androidx.navigation", name = "navigation-ui-
 androidx-lifecycle-viewmodel = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycle" }
 androidx-lifecycle-livedata = { group = "androidx.lifecycle", name = "lifecycle-livedata-ktx", version.ref = "lifecycle" }
 
-# Room Database
-androidx-room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
-androidx-room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
-androidx-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
+# Room Database - Removed, using native string resources instead
+# androidx-room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
+# androidx-room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
+# androidx-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
 
 # Image Loading
 glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "glide" }
