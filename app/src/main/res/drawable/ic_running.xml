@@ -4,7 +4,39 @@
     android:height="24dp"
     android:viewportWidth="24"
     android:viewportHeight="24">
+    
+    <!-- 播放按鈕外框 -->
     <path
-        android:fillColor="@android:color/black"
-        android:pathData="M13.49,5.48c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM9.89,19.38l1,-4.4 2.1,2v6h2v-7.5l-2.1,-2 0.6,-3c1.3,1.5 3.3,2.5 5.5,2.5v-2c-1.9,0 -3.5,-1 -4.3,-2.4l-1,-1.6c-0.4,-0.6 -1,-1 -1.7,-1 -0.3,0 -0.5,0.1 -0.8,0.1l-5.2,2.2v4.7h2v-3.4l1.8,-0.7 -1.6,8.1 -4.9,-1 -0.4,2 7,1.4z" />
+        android:fillColor="?attr/colorOnSurface"
+        android:pathData="M12,2 C6.48,2 2,6.48 2,12 C2,17.52 6.48,22 12,22 C17.52,22 22,17.52 22,12 C22,6.48 17.52,2 12,2 Z M12,20 C7.59,20 4,16.41 4,12 C4,7.59 7.59,4 12,4 C16.41,4 20,7.59 20,12 C20,16.41 16.41,20 12,20 Z" />
+    
+    <!-- 播放三角形 -->
+    <path
+        android:fillColor="?attr/colorPrimary"
+        android:pathData="M10,8 L10,16 L16,12 L10,8 Z" />
+    
+    <!-- 動態線條 1 -->
+    <path
+        android:fillColor="?attr/colorPrimary"
+        android:fillAlpha="0.6"
+        android:pathData="M8,6 L8,8 L10,8 L10,6 L8,6 Z" />
+    
+    <!-- 動態線條 2 -->
+    <path
+        android:fillColor="?attr/colorPrimary"
+        android:fillAlpha="0.8"
+        android:pathData="M14,6 L14,8 L16,8 L16,6 L14,6 Z" />
+    
+    <!-- 動態線條 3 -->
+    <path
+        android:fillColor="?attr/colorPrimary"
+        android:fillAlpha="0.4"
+        android:pathData="M8,16 L8,18 L10,18 L10,16 L8,16 Z" />
+    
+    <!-- 動態線條 4 -->
+    <path
+        android:fillColor="?attr/colorPrimary"
+        android:fillAlpha="0.7"
+        android:pathData="M14,16 L14,18 L16,18 L16,16 L14,16 Z" />
+    
 </vector>

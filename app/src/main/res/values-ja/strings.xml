@@ -16,7 +16,7 @@
     <string name="welcome_title">Vibtime</string>
     <string name="welcome_subtitle">振動時報サービス</string>
     <string name="welcome_features_title">主要機能</string>
-    <string name="welcome_feature_1">• スマートフォンを2回タップして振動時報を取得</string>
+    <string name="welcome_feature_1">• スマートフォンを2回シェイクして振動時報を取得</string>
     <string name="welcome_feature_2">• 画面がオフでも使用可能</string>
     <string name="welcome_feature_3">• 画面を見る必要がない</string>
     <string name="welcome_feature_4">• 静かな環境に最適</string>
@@ -60,10 +60,10 @@
     <string name="about">について</string>
     
     <!-- Tap Settings -->
-    <string name="tap_to_vibrate">タップ振動</string>
-    <string name="tap_count">タップ回数</string>
-    <string name="tap_sensitivity">タップ感度</string>
-    <string name="btn_test_tap">タップテスト</string>
+    <string name="shake_to_vibrate">シェイク振動</string>
+    <string name="shake_count">シェイク回数</string>
+    <string name="shake_sensitivity">シェイク感度</string>
+    <string name="btn_test_shake">シェイクテスト</string>
     
     <!-- Running Page -->
     <string name="running_title">時報実行中</string>
@@ -120,15 +120,15 @@
     <string name="btn_test_basic_vibration">基本振動テスト</string>
     <string name="btn_test_time_vibration">時間振動テスト</string>
     <string name="btn_show_current_time">現在時刻表示</string>
-    <string name="btn_start_tap_detection">タップ検出開始</string>
+    <string name="btn_start_shake_detection">シェイク検出開始</string>
     <string name="btn_start_background_service">バックグラウンドサービス開始</string>
-    <string name="btn_check_tap_settings">タップ設定確認</string>
-    <string name="tap_sensitivity_label">タップ感度: </string>
-    <string name="tap_detection_status">🎯 タップ検出状態</string>
+    <string name="btn_check_shake_settings">シェイク設定確認</string>
+    <string name="shake_sensitivity_label">シェイク感度: </string>
+    <string name="shake_detection_status">🎯 シェイク検出状態</string>
     <string name="status_not_started">未開始</string>
-    <string name="tap_count_default">タップ回数: 0/2</string>
-    <string name="last_tap_default">最後のタップ: --</string>
-    <string name="home_instructions">💡 マイルストーン3：バックグラウンドサービス版\n\n🔸 基本振動：500ms単発振動\n🔸 時間振動：現在時刻に基づく振動パターン\n🔸 タップ検出：感度選択、スマートフォンを2回タップ\n🔸 バックグラウンドサービス：画面オフでも動作\n\n📱 使用方法：\n1. タップ感度を選択\n2. 「バックグラウンドサービス開始」をクリック\n3. 画面をオフにする\n4. スマートフォンを2回タップして時刻を取得\n\n長い振動 = 時間 | 短い振動 = 分/5</string>
+    <string name="shake_count_default">シェイク回数: 0/2</string>
+    <string name="last_shake_default">最後のシェイク: --</string>
+    <string name="home_instructions">💡 マイルストーン3：バックグラウンドサービス版\n\n🔸 基本振動：500ms単発振動\n🔸 時間振動：現在時刻に基づく振動パターン\n🔸 シェイク検出：感度選択、スマートフォンを2回シェイク\n🔸 バックグラウンドサービス：画面オフでも動作\n\n📱 使用方法：\n1. シェイク感度を選択\n2. 「バックグラウンドサービス開始」をクリック\n3. 画面をオフにする\n4. スマートフォンを2回シェイクして時刻を取得\n\n長い振動 = 時間 | 短い振動 = 分/5</string>
     
     <!-- Settings Fragment -->
     <string name="general_settings">📋 一般設定</string>
@@ -192,11 +192,11 @@
     <string name="uptime_placeholder">稼働時間: --</string>
     <string name="start_service">サービス開始</string>
     <string name="stop_service">サービス停止</string>
-    <string name="sensitivity_settings">🎯 タップ感度設定</string>
+    <string name="sensitivity_settings">🎯 シェイク感度設定</string>
     <string name="stats_title">📊 使用統計</string>
     <string name="today_usage_fmt_label">今日の起動: %1$d 回</string>
     <string name="total_usage_fmt_label">総使用: %1$d 回</string>
-    <string name="service_desc_long">💡 サービス制御説明：\n\n• サービス開始後は画面をオフにできます\n• スマートフォンを2回タップして振動時報を取得\n• 感度を調整して個人の習慣に合わせる\n• サービスはバックグラウンドで継続実行\n• 安定性のため省電力ホワイトリストに追加することを推奨</string>
+    <string name="service_desc_long">💡 サービス制御説明：\n\n• サービス開始後は画面をオフにできます\n• スマートフォンを2回シェイクして振動時報を取得\n• 感度を調整して個人の習慣に合わせる\n• サービスはバックグラウンドで継続実行\n• 安定性のため省電力ホワイトリストに追加することを推奨</string>
     
     <!-- Notifications -->
     <string name="notif_channel_vibration">振動サービス</string>
@@ -206,7 +206,7 @@
     <string name="notif_desc_general">一般アプリ通知</string>
     <string name="notif_desc_alerts">重要なリマインダーと警告</string>
     <string name="notif_vibration_running">振動時報サービス実行中</string>
-    <string name="notif_tap_hint">画面をタップして現在時刻を取得</string>
+    <string name="notif_shake_hint">スマートフォンを2回シェイクして現在時刻を取得</string>
     <string name="notif_time_alert">時刻アラート</string>
     <string name="notif_permission_title">権限リマインダー</string>
     <string name="notif_permission_text">一部の機能は正常に動作するために通知権限が必要です</string>
@@ -269,7 +269,7 @@
     <string name="btn_start_service">サービス開始</string>
     <string name="btn_stop_service">サービス停止</string>
     <string name="home_instructions_simple">下のボタンをタップして振動サービスを制御</string>
-    <string name="usage_instructions">使用方法：\n1. 「サービス開始」をタップしてバックグラウンド検出を有効化\n2. スマートフォンを2回タップして振動時報を取得\n3. 画面オフでも使用可能\n4. 安全性のため3時間後に自動停止</string>
+    <string name="usage_instructions">使用方法：\n1. 「サービス開始」をタップしてバックグラウンド検出を有効化\n2. スマートフォンを2回シェイクして振動時報を取得\n3. 画面オフでも使用可能\n4. 安全性のため3時間後に自動停止</string>
     
     <!-- Safety Settings -->
     <string name="safety_settings">安全設定</string>

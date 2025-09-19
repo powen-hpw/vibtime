@@ -15,7 +15,7 @@
     <string name="welcome_title">Vibtime</string>
     <string name="welcome_subtitle">Vibration Time Service</string>
     <string name="welcome_features_title">Key Features</string>
-    <string name="welcome_feature_1">• Tap your phone twice to get vibration time</string>
+    <string name="welcome_feature_1">• Shake your phone twice to get vibration time</string>
     <string name="welcome_feature_2">• Works even when screen is off</string>
     <string name="welcome_feature_3">• No need to look at the screen</string>
     <string name="welcome_feature_4">• Perfect for quiet environments</string>
@@ -58,10 +58,10 @@
     <string name="do_not_disturb">Do Not Disturb</string>
     <string name="about">About</string>
     <!-- Tap Settings -->
-    <string name="tap_to_vibrate">Tap to Vibrate</string>
-    <string name="tap_count">Tap Count</string>
-    <string name="tap_sensitivity">Tap Sensitivity</string>
-    <string name="btn_test_tap">Test Tap</string>
+    <string name="shake_to_vibrate">Shake to Vibrate</string>
+    <string name="shake_count">Shake Count</string>
+    <string name="shake_sensitivity">Shake Sensitivity</string>
+    <string name="btn_test_shake">Test Shake</string>
     
     <!-- Running Page -->
     <string name="running_title">Timekeeping Running</string>
@@ -106,7 +106,7 @@
     <string name="emergency_stop">Emergency Stop</string>
     <string name="frequency_limit">Frequency Limit</string>
     <string name="hour_vibration">Hour Vibration</string>
-    <string name="max_taps">Max Taps</string>
+    <string name="max_shakes">Max Shakes</string>
     <string name="minute_vibration">Minute Vibration</string>
     <string name="notifications">Notifications</string>
     <string name="remaining_time">Remaining Time</string>
@@ -119,17 +119,17 @@
     <string name="test_vibration">Test Vibration</string>
     <string name="toast_vibration_duration_changed">Vibration duration changed: %1$s</string>
     <!-- Tap Detection Messages -->
-    <string name="tap_detection_accelerometer_unavailable">Accelerometer sensor unavailable</string>
-    <string name="tap_detection_started">Tap detection started - Sensitivity: %1$s, Required taps: %2$d</string>
-    <string name="tap_detection_stopped">Tap detection stopped</string>
-    <string name="tap_detection_sensitivity_set">Tap sensitivity set to: %1$s</string>
-    <string name="tap_detection_required_taps_set">Required tap count set to: %1$d</string>
-    <string name="tap_detection_tap_detected">Tap detected %1$d/%2$d</string>
-    <string name="tap_detection_tap_completed">Tap completed! Triggering vibration time</string>
-    <string name="tap_detection_reset_count">Reset tap count</string>
-    <string name="tap_detection_status_format">Sensitivity: %1$s, Tap count: %2$d, Status: %3$s</string>
-    <string name="tap_detection_status_enabled">Enabled</string>
-    <string name="tap_detection_status_disabled">Disabled</string>
+    <string name="shake_detection_accelerometer_unavailable">Accelerometer sensor unavailable</string>
+    <string name="shake_detection_started">Shake detection started - Sensitivity: %1$s, Required shakes: %2$d</string>
+    <string name="shake_detection_stopped">Shake detection stopped</string>
+    <string name="shake_detection_sensitivity_set">Shake sensitivity set to: %1$s</string>
+    <string name="shake_detection_required_shakes_set">Required shake count set to: %1$d</string>
+    <string name="shake_detection_shake_detected">Shake detected %1$d/%2$d</string>
+    <string name="shake_detection_shake_completed">Shake completed! Triggering vibration time</string>
+    <string name="shake_detection_reset_count">Reset shake count</string>
+    <string name="shake_detection_status_format">Sensitivity: %1$s, Shake count: %2$d, Status: %3$s</string>
+    <string name="shake_detection_status_enabled">Enabled</string>
+    <string name="shake_detection_status_disabled">Disabled</string>
     <!-- Battery Optimization Messages -->
     <string name="battery_optimization_title">Battery Optimization</string>
     <string name="battery_optimization_message">To ensure vibration service can run normally in background, it is recommended to add Vibtime to battery optimization whitelist.</string>
@@ -161,7 +161,7 @@
     
     <!-- Service Management -->
     <string name="service_start_dialog_title">Start Vibration Service</string>
-    <string name="service_start_dialog_message">The vibration service will run in the background to detect taps and provide time vibration. This service will show a notification and may use battery power.</string>
+    <string name="service_start_dialog_message">The vibration service will run in the background to detect phone shakes and provide time vibration. This service will show a notification and may use battery power.</string>
     <string name="service_start_confirm">Start Service</string>
     <string name="service_permissions_missing_title">Permissions Required</string>
     <string name="service_permissions_missing_message">The following permissions are required to start the vibration service:\n\n• %1$s\n\nPlease enable these permissions in Settings.</string>
@@ -180,18 +180,18 @@
     <!-- Error Messages -->
     <string name="cannot_open_app_store">Unable to open app store</string>
     <!-- Sensitivity Descriptions -->
-    <string name="sensitivity_low_desc">Low sensitivity (normal tap)</string>
-    <string name="sensitivity_medium_desc">Medium sensitivity (light tap)</string>
-    <string name="sensitivity_high_desc">High sensitivity (very light tap)</string>
+    <string name="sensitivity_low_desc">Low sensitivity (normal shake)</string>
+    <string name="sensitivity_medium_desc">Medium sensitivity (light shake)</string>
+    <string name="sensitivity_high_desc">High sensitivity (very light shake)</string>
     <!-- Notification Messages -->
-    <string name="notification_tap_count">Tap count: %1$d/%2$d</string>
-    <string name="notification_service_running">Vibration service running - tap phone twice to get time</string>
+    <string name="notification_shake_count">Shake count: %1$d/%2$d</string>
+    <string name="notification_service_running">Vibration service running - shake phone twice to get time</string>
     <string name="notification_sensitivity_updated">Sensitivity updated: %1$s</string>
-    <string name="notification_tap_success">Tap successful! Time: %1$s</string>
-    <string name="notification_screen_on">Screen on - tap phone twice to get time</string>
-    <string name="notification_screen_off">Screen off - tap phone twice to get time</string>
+    <string name="notification_shake_success">Shake successful! Time: %1$s</string>
+    <string name="notification_screen_on">Screen on - shake phone twice to get time</string>
+    <string name="notification_screen_off">Screen off - shake phone twice to get time</string>
     <string name="notification_channel_name">Vibration Service</string>
-    <string name="notification_channel_description">Background tap detection and vibration time reporting</string>
+    <string name="notification_channel_description">Background shake detection and vibration time reporting</string>
     <string name="notification_title">Vibtime Vibration Time</string>
     <!-- Reset Dialog -->
     <string name="reset_dialog_title">⚠️ Reset All Settings</string>
@@ -221,15 +221,15 @@
     <string name="btn_test_basic_vibration">Test Basic Vibration</string>
     <string name="btn_test_time_vibration">Test Time Vibration</string>
     <string name="btn_show_current_time">Show Current Time</string>
-    <string name="btn_start_tap_detection">Start Tap Detection</string>
+    <string name="btn_start_shake_detection">Start Shake Detection</string>
     <string name="btn_start_background_service">Start Background Service</string>
-    <string name="btn_check_tap_settings">Check Tap Settings</string>
-    <string name="tap_sensitivity_label">Tap Sensitivity: </string>
-    <string name="tap_detection_status">🎯 Tap Detection Status</string>
+    <string name="btn_check_shake_settings">Check Shake Settings</string>
+    <string name="shake_sensitivity_label">Shake Sensitivity: </string>
+    <string name="shake_detection_status">🎯 Shake Detection Status</string>
     <string name="status_not_started">Not Started</string>
-    <string name="tap_count_default">Tap Count: 0/2</string>
-    <string name="last_tap_default">Last Tap: --</string>
-    <string name="home_instructions">💡 Milestone 3: Background Service Version\n\n🔸 Basic Vibration: 500ms single vibration\n🔸 Time Vibration: Vibration pattern based on current time\n🔸 Tap Detection: Choose sensitivity, tap phone 2 times\n🔸 Background Service: Works even when screen is off\n\n📱 How to Use:\n1. Select tap sensitivity\n2. Click \"Start Background Service\"\n3. Turn off screen\n4. Tap phone 2 times to get time\n\nLong vibration = Hour | Short vibration = Minute/5</string>
+    <string name="shake_count_default">Shake Count: 0/2</string>
+    <string name="last_shake_default">Last Shake: --</string>
+    <string name="home_instructions">💡 Milestone 3: Background Service Version\n\n🔸 Basic Vibration: 500ms single vibration\n🔸 Time Vibration: Vibration pattern based on current time\n🔸 Shake Detection: Choose sensitivity, shake phone twice to get time\n🔸 Background Service: Works even when screen is off\n\n📱 How to Use:\n1. Select shake sensitivity\n2. Click \"Start Background Service\"\n3. Turn off screen\n4. Shake phone twice to get time\n\nLong vibration = Hour | Short vibration = Minute/5</string>
     
     <!-- Settings Fragment -->
     <string name="general_settings">📋 General Settings</string>
@@ -297,7 +297,7 @@
     <string name="stats_title">📊 Usage Stats</string>
     <string name="today_usage_fmt_label">Today: %1$d</string>
     <string name="total_usage_fmt_label">Total: %1$d</string>
-    <string name="service_desc_long">💡 Notes:\n\n• Works with screen off\n• Tap phone twice to get time\n• Adjust sensitivity\n• Runs in background\n• Add to battery whitelist for stability</string>
+    <string name="service_desc_long">💡 Notes:\n\n• Works with screen off\n• Shake phone twice to get time\n• Adjust sensitivity\n• Runs in background\n• Add to battery whitelist for stability</string>
 
     <!-- Notifications -->
     <string name="notif_channel_vibration">Vibration Service</string>
@@ -307,7 +307,7 @@
     <string name="notif_desc_general">General app notifications</string>
     <string name="notif_desc_alerts">Important reminders and alerts</string>
     <string name="notif_vibration_running">Vibration service is running</string>
-    <string name="notif_tap_hint">Tap screen to get time</string>
+    <string name="notif_shake_hint">Shake phone to get time</string>
     <string name="notif_time_alert">Time Alert</string>
     <string name="notif_permission_title">Permission Reminder</string>
     <string name="notif_permission_text">Some features require notification permission</string>
@@ -346,7 +346,7 @@
     <string name="btn_start_service">Start Service</string>
     <string name="btn_stop_service">Stop Service</string>
     <string name="home_instructions_simple">Tap the buttons below to control the vibration service</string>
-    <string name="usage_instructions">How to use:\n1. Tap "Start Service" to enable background detection\n2. Tap your phone twice to get vibration time\n3. Works even when screen is off\n4. Service will auto-stop after 3 hours for safety</string>
+    <string name="usage_instructions">How to use:\n1. Tap "Start Service" to enable background detection\n2. Shake your phone twice to get vibration time\n3. Works even when screen is off\n4. Service will auto-stop after 3 hours for safety</string>
     
     <!-- Safety Settings -->
     <string name="safety_settings">Safety Settings</string>
@@ -451,12 +451,12 @@
     <string name="notification_watch_mode_cooldown">Cooldown: %1$d minutes remaining</string>
     
     <!-- 無障礙支持字串 -->
-    <string name="start_service_description">Start vibration service to detect taps and provide time vibration</string>
+    <string name="start_service_description">Start vibration service to detect phone shakes and provide time vibration</string>
     <string name="stop_service_description">Stop vibration service</string>
     <string name="test_vibration_description">Test vibration pattern for current time</string>
     <string name="test_basic_vibration_description">Test basic vibration pattern</string>
-    <string name="start_background_service_description">Start background service for tap detection</string>
-    <string name="check_tap_settings_description">Check tap detection settings</string>
+    <string name="start_background_service_description">Start background service for shake detection</string>
+    <string name="check_shake_settings_description">Check shake detection settings</string>
     <string name="show_current_time_description">Show current time on screen</string>
     
     <!-- 權限相關字串 -->

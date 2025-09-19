@@ -15,7 +15,7 @@
     <string name="welcome_title">Vibtime</string>
     <string name="welcome_subtitle">震动报时服务</string>
     <string name="welcome_features_title">核心功能</string>
-    <string name="welcome_feature_1">• 轻敲手机两次获得震动报时</string>
+    <string name="welcome_feature_1">• 晃动手机两次获得震动报时</string>
     <string name="welcome_feature_2">• 屏幕关闭时也能使用</string>
     <string name="welcome_feature_3">• 无需查看屏幕</string>
     <string name="welcome_feature_4">• 适合安静环境</string>
@@ -58,10 +58,10 @@
     <string name="do_not_disturb">勿扰模式</string>
     <string name="about">关于</string>
     <!-- Tap Settings -->
-    <string name="tap_to_vibrate">敲击震动</string>
-    <string name="tap_count">敲击次数</string>
-    <string name="tap_sensitivity">敲击灵敏度</string>
-    <string name="btn_test_tap">测试敲击</string>
+    <string name="shake_to_vibrate">晃动震动</string>
+    <string name="shake_count">晃动次数</string>
+    <string name="shake_sensitivity">晃动灵敏度</string>
+    <string name="btn_test_shake">测试晃动</string>
     
     <!-- Running Page -->
     <string name="running_title">运行中</string>
@@ -118,15 +118,15 @@
     <string name="btn_test_basic_vibration">测试基本震动</string>
     <string name="btn_test_time_vibration">测试时间震动</string>
     <string name="btn_show_current_time">显示当前时间</string>
-    <string name="btn_start_tap_detection">启动敲击检测</string>
+    <string name="btn_start_shake_detection">启动晃动检测</string>
     <string name="btn_start_background_service">启动背景服务</string>
-    <string name="btn_check_tap_settings">检查敲击设置</string>
-    <string name="tap_sensitivity_label">敲击灵敏度: </string>
-    <string name="tap_detection_status">🎯 敲击检测状态</string>
+    <string name="btn_check_shake_settings">检查晃动设置</string>
+    <string name="shake_sensitivity_label">晃动灵敏度: </string>
+    <string name="shake_detection_status">🎯 晃动检测状态</string>
     <string name="status_not_started">未启动</string>
-    <string name="tap_count_default">敲击计数: 0/2</string>
-    <string name="last_tap_default">上次敲击: --</string>
-    <string name="home_instructions">💡 里程碑 3：背景服务版本\n\n🔸 基本震动：500ms 单次震动\n🔸 时间震动：根据当前时间产生震动模式\n🔸 敲击检测：选择灵敏度，轻敲手机 2 次\n🔸 背景服务：屏幕关闭时也能敲击报时\n\n📱 使用方式：\n1. 选择敲击灵敏度\n2. 点击「启动背景服务」\n3. 关闭屏幕\n4. 敲击手机 2 次获得时间\n\n长震动 = 小时数 | 短震动 = 分钟数/5</string>
+    <string name="shake_count_default">晃动计数: 0/2</string>
+    <string name="last_shake_default">上次晃动: --</string>
+    <string name="home_instructions">💡 里程碑 3：背景服务版本\n\n🔸 基本震动：500ms 单次震动\n🔸 时间震动：根据当前时间产生震动模式\n🔸 晃动检测：选择灵敏度，晃动手机两次\n🔸 背景服务：屏幕关闭时也能晃动报时\n\n📱 使用方式：\n1. 选择晃动灵敏度\n2. 点击「启动背景服务」\n3. 关闭屏幕\n4. 晃动手机两次获得时间\n\n长震动 = 小时数 | 短震动 = 分钟数/5</string>
     
     <!-- Settings Fragment -->
     <string name="general_settings">📋 一般设置</string>
@@ -190,11 +190,11 @@
     <string name="uptime_placeholder">运行时间: --</string>
     <string name="start_service">启动服务</string>
     <string name="stop_service">停止服务</string>
-    <string name="sensitivity_settings">🎯 敲击敏感度设置</string>
+    <string name="sensitivity_settings">🎯 晃动敏感度设置</string>
     <string name="stats_title">📊 使用统计</string>
     <string name="today_usage_fmt_label">今日启动: %1$d 次</string>
     <string name="total_usage_fmt_label">总计使用: %1$d 次</string>
-    <string name="service_desc_long">💡 服务控制说明：\n\n• 启动服务后可关闭屏幕使用\n• 敲击手机 2 次获得震动报时\n• 调整敏感度适应个人习惯\n• 服务会在后台持续运行\n• 建议加入省电白名单确保稳定</string>
+    <string name="service_desc_long">💡 服务控制说明：\n\n• 启动服务后可关闭屏幕使用\n• 晃动手机两次获得震动报时\n• 调整敏感度适应个人习惯\n• 服务会在后台持续运行\n• 建议加入省电白名单确保稳定</string>
     
     <!-- Notifications -->
     <string name="notif_channel_vibration">震动服务</string>
@@ -204,7 +204,7 @@
     <string name="notif_desc_general">一般应用通知</string>
     <string name="notif_desc_alerts">重要提醒与警告</string>
     <string name="notif_vibration_running">震动报时服务运行中</string>
-    <string name="notif_tap_hint">轻敲屏幕即可获取当前时间</string>
+    <string name="notif_shake_hint">晃动手机两次即可获取当前时间</string>
     <string name="notif_time_alert">时间提醒</string>
     <string name="notif_permission_title">权限提醒</string>
     <string name="notif_permission_text">某些功能需要通知权限才能正常运行</string>
@@ -266,7 +266,7 @@
     <string name="btn_start_service">开始服务</string>
     <string name="btn_stop_service">停止服务</string>
     <string name="home_instructions_simple">点击下方按钮来控制震动服务</string>
-    <string name="usage_instructions">使用方法：\n1. 点击「开始服务」启用背景侦测\n2. 轻敲手机两次获得震动报时\n3. 屏幕关闭时也能使用\n4. 服务会在3小时后自动停止以确保安全</string>
+    <string name="usage_instructions">使用方法：\n1. 点击「开始服务」启用背景侦测\n2. 晃动手机两次获得震动报时\n3. 屏幕关闭时也能使用\n4. 服务会在3小时后自动停止以确保安全</string>
     
     <!-- Safety Settings -->
     <string name="safety_settings">安全设置</string>

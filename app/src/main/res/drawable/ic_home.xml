@@ -4,7 +4,29 @@
     android:height="24dp"
     android:viewportWidth="24"
     android:viewportHeight="24">
+    
+    <!-- 房子外框 -->
     <path
-        android:fillColor="@android:color/black"
-        android:pathData="M12,2C6.48,2 2,6.48 2,12s4.48,10 10,10 10,-4.48 10,-10S17.52,2 12,2zM13,17h-2v-6h2v6zM13,9h-2L11,7h2v2z" />
+        android:fillColor="?attr/colorOnSurface"
+        android:pathData="M10,20 L10,14 L14,14 L14,20 L19,20 L19,12 L22,12 L12,3 L2,12 L5,12 L5,20 L10,20 Z" />
+    
+    <!-- 房子內部 -->
+    <path
+        android:fillColor="?attr/colorPrimary"
+        android:pathData="M12,5.69 L20,12 L18,12 L18,20 L15,20 L15,14 L9,14 L9,20 L6,20 L6,12 L4,12 L12,5.69 Z" />
+    
+    <!-- 門 -->
+    <path
+        android:fillColor="?attr/colorOnSurface"
+        android:pathData="M11,16 L11,20 L13,20 L13,16 L11,16 Z" />
+    
+    <!-- 窗戶 -->
+    <path
+        android:fillColor="?attr/colorOnSurface"
+        android:pathData="M7,15 L7,17 L9,17 L9,15 L7,15 Z" />
+    
+    <path
+        android:fillColor="?attr/colorOnSurface"
+        android:pathData="M15,15 L15,17 L17,17 L17,15 L15,15 Z" />
+    
 </vector>

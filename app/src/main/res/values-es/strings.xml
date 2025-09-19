@@ -15,7 +15,7 @@
     <string name="welcome_title">Vibtime</string>
     <string name="welcome_subtitle">Servicio de Tiempo por Vibración</string>
     <string name="welcome_features_title">Características Principales</string>
-    <string name="welcome_feature_1">• Toca tu teléfono dos veces para obtener vibración de tiempo</string>
+    <string name="welcome_feature_1">• Agita tu teléfono dos veces para obtener vibración de tiempo</string>
     <string name="welcome_feature_2">• Funciona incluso con pantalla apagada</string>
     <string name="welcome_feature_3">• No necesitas mirar la pantalla</string>
     <string name="welcome_feature_4">• Perfecto para ambientes silenciosos</string>
@@ -58,10 +58,10 @@
     <string name="do_not_disturb">No Molestar</string>
     <string name="about">Acerca de</string>
     <!-- Tap Settings -->
-    <string name="tap_to_vibrate">Tocar para Vibrar</string>
-    <string name="tap_count">Cantidad de Toques</string>
-    <string name="tap_sensitivity">Sensibilidad de Toque</string>
-    <string name="btn_test_tap">Probar Toque</string>
+    <string name="shake_to_vibrate">Agitar para Vibrar</string>
+    <string name="shake_count">Cantidad de Agitaciones</string>
+    <string name="shake_sensitivity">Sensibilidad de Agitación</string>
+    <string name="btn_test_shake">Probar Agitación</string>
     
     <!-- Running Page -->
     <string name="running_title">Cronometraje en Ejecución</string>
@@ -126,12 +126,12 @@
     <string name="sensitivity_high_desc">Sensibilidad alta (toque muy ligero)</string>
     
     <!-- Notification Messages -->
-    <string name="notification_tap_count">Cantidad de toques: %1$d/%2$d</string>
-    <string name="notification_service_running">Servicio de vibración ejecutándose - toca el teléfono dos veces para obtener la hora</string>
+    <string name="notification_shake_count">Cantidad de agitaciones: %1$d/%2$d</string>
+    <string name="notification_service_running">Servicio de vibración ejecutándose - agita el teléfono dos veces para obtener la hora</string>
     <string name="notification_sensitivity_updated">Sensibilidad actualizada: %1$s</string>
-    <string name="notification_tap_success">¡Toque exitoso! Hora: %1$s</string>
-    <string name="notification_screen_on">Pantalla encendida - toca el teléfono dos veces para obtener la hora</string>
-    <string name="notification_screen_off">Pantalla apagada - toca el teléfono dos veces para obtener la hora</string>
+    <string name="notification_shake_success">¡Agitación exitosa! Hora: %1$s</string>
+    <string name="notification_screen_on">Pantalla encendida - agita el teléfono dos veces para obtener la hora</string>
+    <string name="notification_screen_off">Pantalla apagada - agita el teléfono dos veces para obtener la hora</string>
     <string name="notification_channel_name">Servicio de Vibración</string>
     <string name="notification_channel_description">Detección de toques en segundo plano y reporte de tiempo por vibración</string>
     <string name="notification_title">Vibtime Vibración de Tiempo</string>
@@ -151,15 +151,15 @@
     <string name="btn_test_basic_vibration">Probar Vibración Básica</string>
     <string name="btn_test_time_vibration">Probar Vibración de Tiempo</string>
     <string name="btn_show_current_time">Mostrar Hora Actual</string>
-    <string name="btn_start_tap_detection">Iniciar Detección de Toques</string>
+    <string name="btn_start_shake_detection">Iniciar Detección de Agitaciones</string>
     <string name="btn_start_background_service">Iniciar Servicio en Segundo Plano</string>
-    <string name="btn_check_tap_settings">Verificar Configuración de Toques</string>
-    <string name="tap_sensitivity_label">Sensibilidad de Toque: </string>
-    <string name="tap_detection_status">🎯 Estado de Detección de Toques</string>
+    <string name="btn_check_shake_settings">Verificar Configuración de Agitaciones</string>
+    <string name="shake_sensitivity_label">Sensibilidad de Agitación: </string>
+    <string name="shake_detection_status">🎯 Estado de Detección de Agitaciones</string>
     <string name="status_not_started">No Iniciado</string>
-    <string name="tap_count_default">Cantidad de Toques: 0/2</string>
-    <string name="last_tap_default">Último Toque: --</string>
-    <string name="home_instructions">💡 Hito 3: Versión de Servicio en Segundo Plano\n\n🔸 Vibración Básica: 500ms vibración única\n🔸 Vibración de Tiempo: Patrón de vibración basado en la hora actual\n🔸 Detección de Toques: Elige sensibilidad, toca el teléfono 2 veces\n🔸 Servicio en Segundo Plano: Funciona incluso con pantalla apagada\n\n📱 Cómo Usar:\n1. Selecciona sensibilidad de toque\n2. Haz clic en \"Iniciar Servicio en Segundo Plano\"\n3. Apaga la pantalla\n4. Toca el teléfono 2 veces para obtener la hora\n\nVibración larga = Hora | Vibración corta = Minuto/5</string>
+    <string name="shake_count_default">Cantidad de Agitaciones: 0/2</string>
+    <string name="last_shake_default">Última Agitación: --</string>
+    <string name="home_instructions">💡 Hito 3: Versión de Servicio en Segundo Plano\n\n🔸 Vibración Básica: 500ms vibración única\n🔸 Vibración de Tiempo: Patrón de vibración basado en la hora actual\n🔸 Detección de Agitaciones: Elige sensibilidad, agita el teléfono 2 veces\n🔸 Servicio en Segundo Plano: Funciona incluso con pantalla apagada\n\n📱 Cómo Usar:\n1. Selecciona sensibilidad de agitación\n2. Haz clic en \"Iniciar Servicio en Segundo Plano\"\n3. Apaga la pantalla\n4. Agita el teléfono 2 veces para obtener la hora\n\nVibración larga = Hora | Vibración corta = Minuto/5</string>
     
     <!-- Settings Fragment -->
     <string name="general_settings">📋 Configuración General</string>
@@ -227,7 +227,7 @@
     <string name="stats_title">📊 Estadísticas de Uso</string>
     <string name="today_usage_fmt_label">Hoy: %1$d</string>
     <string name="total_usage_fmt_label">Total: %1$d</string>
-    <string name="service_desc_long">💡 Notas:\n\n• Funciona con pantalla apagada\n• Toca el teléfono dos veces para obtener la hora\n• Ajusta la sensibilidad\n• Se ejecuta en segundo plano\n• Agrega a la lista blanca de batería para estabilidad</string>
+    <string name="service_desc_long">💡 Notas:\n\n• Funciona con pantalla apagada\n• Agita el teléfono dos veces para obtener la hora\n• Ajusta la sensibilidad\n• Se ejecuta en segundo plano\n• Agrega a la lista blanca de batería para estabilidad</string>
     
     <!-- Toast Messages -->
     <string name="toast_vibration_test_sent">Prueba de vibración enviada</string>
@@ -292,7 +292,7 @@
     <string name="btn_start_service">Iniciar Servicio</string>
     <string name="btn_stop_service">Detener Servicio</string>
     <string name="home_instructions_simple">Toca los botones a continuación para controlar el servicio de vibración</string>
-    <string name="usage_instructions">Cómo usar:\n1. Toca \"Iniciar Servicio\" para habilitar la detección en segundo plano\n2. Toca tu teléfono dos veces para obtener la vibración de tiempo\n3. Funciona incluso con pantalla apagada\n4. El servicio se auto-detendrá después de 3 horas por seguridad</string>
+    <string name="usage_instructions">Cómo usar:\n1. Toca \"Iniciar Servicio\" para habilitar la detección en segundo plano\n2. Agita tu teléfono dos veces para obtener la vibración de tiempo\n3. Funciona incluso con pantalla apagada\n4. El servicio se auto-detendrá después de 3 horas por seguridad</string>
     
     <!-- Safety Settings -->
     <string name="safety_settings">Configuración de Seguridad</string>
@@ -349,7 +349,7 @@
     <string name="notif_desc_general">Notificaciones generales de la aplicación</string>
     <string name="notif_desc_alerts">Recordatorios importantes y alertas</string>
     <string name="notif_vibration_running">El servicio de vibración está ejecutándose</string>
-    <string name="notif_tap_hint">Toca la pantalla para obtener la hora</string>
+    <string name="notif_shake_hint">Agita el teléfono para obtener la hora</string>
     <string name="notif_time_alert">Alerta de Tiempo</string>
     <string name="notif_permission_title">Recordatorio de Permiso</string>
     <string name="notif_permission_text">Algunas características requieren permiso de notificación</string>
@@ -429,17 +429,17 @@
     <string name="battery_issue_power_save">Por favor desactiva el modo de ahorro de energía para la mejor experiencia</string>
     
     <!-- Tap Detection Messages -->
-    <string name="tap_detection_accelerometer_unavailable">Sensor acelerómetro no disponible</string>
-    <string name="tap_detection_started">Detección de toques iniciada - Sensibilidad: %1$s, Toques requeridos: %2$d</string>
-    <string name="tap_detection_stopped">Detección de toques detenida</string>
-    <string name="tap_detection_sensitivity_set">Sensibilidad de toque establecida en: %1$s</string>
-    <string name="tap_detection_required_taps_set">Cantidad de toques requeridos establecida en: %1$d</string>
-    <string name="tap_detection_tap_detected">Toque detectado %1$d/%2$d</string>
-    <string name="tap_detection_tap_completed">¡Toque completado! Activando vibración de tiempo</string>
-    <string name="tap_detection_reset_count">Restablecer cantidad de toques</string>
-    <string name="tap_detection_status_format">Sensibilidad: %1$s, Cantidad de toques: %2$d, Estado: %3$s</string>
-    <string name="tap_detection_status_enabled">Habilitado</string>
-    <string name="tap_detection_status_disabled">Deshabilitado</string>
+    <string name="shake_detection_accelerometer_unavailable">Sensor acelerómetro no disponible</string>
+    <string name="shake_detection_started">Detección de agitaciones iniciada - Sensibilidad: %1$s, Agitaciones requeridas: %2$d</string>
+    <string name="shake_detection_stopped">Detección de agitaciones detenida</string>
+    <string name="shake_detection_sensitivity_set">Sensibilidad de agitación establecida en: %1$s</string>
+    <string name="shake_detection_required_shakes_set">Cantidad de agitaciones requeridas establecida en: %1$d</string>
+    <string name="shake_detection_shake_detected">Agitación detectada %1$d/%2$d</string>
+    <string name="shake_detection_shake_completed">¡Agitación completada! Activando vibración de tiempo</string>
+    <string name="shake_detection_reset_count">Restablecer cantidad de agitaciones</string>
+    <string name="shake_detection_status_format">Sensibilidad: %1$s, Cantidad de agitaciones: %2$d, Estado: %3$s</string>
+    <string name="shake_detection_status_enabled">Habilitado</string>
+    <string name="shake_detection_status_disabled">Deshabilitado</string>
     
     <!-- Missing String Resources -->
     <string name="auto_stop">Auto Detener</string>
@@ -450,7 +450,7 @@
     <string name="emergency_stop">Detención de Emergencia</string>
     <string name="frequency_limit">Límite de Frecuencia</string>
     <string name="hour_vibration">Vibración de Hora</string>
-    <string name="max_taps">Máximo de Toques</string>
+    <string name="max_shakes">Máximo de Agitaciones</string>
     <string name="minute_vibration">Vibración de Minuto</string>
     <string name="notifications">Notificaciones</string>
     <string name="remaining_time">Tiempo Restante</string>

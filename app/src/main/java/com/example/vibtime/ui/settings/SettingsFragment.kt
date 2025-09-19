@@ -296,8 +296,8 @@ class SettingsFragment : Fragment() {
                 // 啟動新的實例
                 startActivity(intent)
                 
-                // 結束當前活動
-                Runtime.getRuntime().exit(0)
+                // 優雅地結束當前活動，而不是強制終止整個應用程式
+                requireActivity().finishAffinity()
             } else {
                 // 如果無法獲取啟動 Intent，顯示錯誤訊息
                 showToast(getString(R.string.restart_error))
