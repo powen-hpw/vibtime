@@ -1,0 +1,929 @@
+always type "使用vibtime rules yoyoyo" in the beginning of your reply to me in conversation
+
+---
+
+# 📘 Cursor Rules: Vibtime (震動報時) - Android Kotlin
+
+## 🎯 High-Level Overview
+This project is a mobile app named **Vibtime**, which allows users to receive the current time via vibration patterns by tapping the screen (even when the screen is off). The app is written using **Android Kotlin** with modern Android development practices.
+
+Cursor should prioritize code that is **energy-efficient**, **non-intrusive**, **localized**, **accessible**, and **respects Android platform constraints** (e.g., background restrictions, battery optimization).
+
+---
+
+## 🔧 Rule Type
+- **Rule Type:** `Always`
+- These rules apply globally to the entire Vibtime codebase.
+
+---
+
+## 📋 目錄
+- [核心原則](#核心原則)
+- [代碼結構規範](#代碼結構規範)
+- [Android 合規性](#android-合規性)
+- [UI/UX 規範](#uiux-規範)
+- [安全機制](#安全機制)
+- [性能優化](#性能優化)
+- [測試規範](#測試規範)
+- [文檔規範](#文檔規範)
+
+---
+
+## 🎯 核心原則 (Core Principles)
+
+### 1. 無障礙優先 (Accessibility First)
+```kotlin
+// ✅ 正確：提供完整的無障礙支持
+button.contentDescription = getString(R.string.start_service_description)
+button.isImportantForAccessibility = true
+
+// ❌ 錯誤：缺少無障礙描述
+button.setOnClickListener { startService() }
+```
+
+**Android 14 無障礙增強：**
+- 支援高達 200% 的字體縮放
+- 確保 UI 元素在高縮放比例下仍能正常顯示和操作
+- 實現非線性字體放大支援
+
+### 2. 多語言支持 (i18n Ready)
+```kotlin
+// ✅ 正確：使用字串資源
+Toast.makeText(context, getString(R.string.service_started), Toast.LENGTH_SHORT).show()
+
+// ❌ 錯誤：硬編碼字串
+Toast.makeText(context, "Service started", Toast.LENGTH_SHORT).show()
+```
+
+**Android 14 區域偏好支援：**
+- 支援用戶自定義溫度單位、一週的第一天、數字系統
+- 通過相關 API 獲取用戶設定並相應調整顯示資訊
+
+### 3. 安全合規 (Security Compliance)
+```kotlin
+// ✅ 正確：合規的感測器使用
+watchModeManager.startWatchMode(WatchModeManager.WATCH_MODE_DURATION_10MIN)
+
+// ❌ 錯誤：持續監聽感測器
+sensorManager.registerListener(this, accelerometer, SensorManager.SENSOR_DELAY_UI)
+```
+
+---
+
+## 🏗️ 代碼結構規範
+
+### 1. ViewBinding 標準實現
+```kotlin
+// ✅ 正確：標準 ViewBinding 模式
+class HomeFragment : Fragment() {
+    private var _binding: FragmentHomeBinding? = null
+    private val binding get() = _binding!!
+    
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+    
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+}
+
+// ❌ 錯誤：使用 findViewById
+private lateinit var button: Button
+button = findViewById(R.id.startButton)
+```
+
+### 2. MVVM 架構模式
+```kotlin
+// ✅ 正確：ViewModel 分離業務邏輯
+class HomeViewModel : ViewModel() {
+    private val _serviceStatus = MutableLiveData<ServiceStatus>()
+    val serviceStatus: LiveData<ServiceStatus> = _serviceStatus
+    
+    fun startService() {
+        // 業務邏輯處理
+        _serviceStatus.value = ServiceStatus.RUNNING
+    }
+}
+
+// Fragment 只處理 UI
+class HomeFragment : Fragment() {
+    private val viewModel: HomeViewModel by viewModels()
+    
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        viewModel.serviceStatus.observe(viewLifecycleOwner) { status ->
+            updateUI(status)
+        }
+    }
+}
+```
+
+### 3. 服務架構規範
+```kotlin
+// ✅ 正確：合規的前景服務
+class VibrationService : Service() {
+    companion object {
+        private const val NOTIFICATION_ID = 1001
+    }
+    
+    override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
+        val notification = createNotification()
+        startForeground(NOTIFICATION_ID, notification)
+        return START_STICKY
+    }
+    
+    private fun createNotification(): Notification {
+        return NotificationHelper.createVibrationServiceNotification(this)
+    }
+}
+```
+
+---
+
+## 📱 Android 合規性
+
+### 1. 感測器使用合規
+```kotlin
+// ✅ 正確：限時監聽 + Wake-up Sensor
+class WatchModeManager : SensorEventListener {
+    fun startWatchMode(duration: Long): Boolean {
+        // 檢查冷卻期
+        if (isInCooldownPeriod()) return false
+        
+        // 使用 wake-up sensor
+        val accelerometer = sensorManager.getDefaultSensor(
+            Sensor.TYPE_ACCELEROMETER, 
+            true // wakeUp = true
+        )
+        
+        // 限時監聽
+        sensorManager.registerListener(this, accelerometer, SensorManager.SENSOR_DELAY_NORMAL)
+        
+        // 自動停止
+        handler.postDelayed({ stopWatchMode() }, duration)
+        return true
+    }
+}
+
+// ❌ 錯誤：持續監聽感測器
+sensorManager.registerListener(this, accelerometer, SensorManager.SENSOR_DELAY_UI)
+```
+
+### 2. 權限管理
+```kotlin
+// ✅ 正確：動態權限檢查
+private fun requestPermissions() {
+    when {
+        ContextCompat.checkSelfPermission(
+            requireContext(),
+            Manifest.permission.POST_NOTIFICATIONS
+        ) == PackageManager.PERMISSION_GRANTED -> {
+            startService()
+        }
+        shouldShowRequestPermissionRationale(Manifest.permission.POST_NOTIFICATIONS) -> {
+            showPermissionExplanation()
+        }
+        else -> {
+            requestPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
+        }
+    }
+}
+```
+
+### 3. 前景服務配置
+```xml
+<!-- ✅ 正確：簡潔的服務配置 -->
+<service
+    android:name=".service.VibrationService"
+    android:enabled="true"
+    android:exported="false" />
+
+<!-- ❌ 錯誤：使用 specialUse -->
+<service
+    android:name=".service.VibrationService"
+    android:foregroundServiceType="specialUse"
+    android:enabled="true"
+    android:exported="false" />
+```
+
+### 4. Android 14 特定合規要求
+
+#### 精確鬧鐘權限變更
+```kotlin
+// ✅ 正確：Android 14 精確鬧鐘權限處理
+class ExactAlarmManager {
+    fun requestExactAlarmPermission(activity: Activity) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            val alarmManager = activity.getSystemService(Context.ALARM_SERVICE) as AlarmManager
+            if (!alarmManager.canScheduleExactAlarms()) {
+                val intent = Intent(Settings.ACTION_REQUEST_SCHEDULE_EXACT_ALARM).apply {
+                    data = Uri.parse("package:${activity.packageName}")
+                }
+                activity.startActivity(intent)
+            }
+        }
+    }
+}
+```
+
+#### 後台活動啟動限制
+```kotlin
+// ✅ 正確：檢查後台活動啟動限制
+class BackgroundActivityHelper {
+    fun canStartActivityFromBackground(context: Context): Boolean {
+        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+            // Android 14+ 後台活動限制檢查
+            val activityManager = context.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
+            activityManager.isBackgroundRestricted
+        } else {
+            true
+        }
+    }
+}
+```
+
+#### Zip 路徑遍歷防護
+```kotlin
+// ✅ 正確：安全的 Zip 文件處理
+class SafeZipHandler {
+    fun extractZipSafely(zipFile: File, destination: File) {
+        try {
+            ZipFile(zipFile).use { zip ->
+                zip.entries().asSequence().forEach { entry ->
+                    // 檢查路徑安全性
+                    if (entry.name.contains("..") || entry.name.startsWith("/")) {
+                        throw ZipException("Unsafe zip entry: ${entry.name}")
+                    }
+                    // 安全提取
+                    extractEntry(entry, destination)
+                }
+            }
+        } catch (e: ZipException) {
+            Log.e("SafeZipHandler", "Unsafe zip file detected", e)
+        }
+    }
+}
+```
+
+---
+
+## 🎨 UI/UX 規範
+
+### 1. Material Design 3 實現
+```kotlin
+// ✅ 正確：使用 Material 3 組件
+class HomeFragment : Fragment() {
+    private fun setupUI() {
+        binding.startButton.apply {
+            // Material 3 按鈕樣式
+            setOnClickListener { startService() }
+            isEnabled = true
+        }
+        
+        binding.statusCard.apply {
+            // Material 3 卡片樣式
+            elevation = resources.getDimension(R.dimen.card_elevation)
+        }
+    }
+}
+```
+
+### 2. 響應式設計
+```kotlin
+// ✅ 正確：適配不同螢幕尺寸
+private fun setupResponsiveLayout() {
+    val displayMetrics = resources.displayMetrics
+    val screenWidth = displayMetrics.widthPixels / displayMetrics.density
+    
+    when {
+        screenWidth < 360 -> setupCompactLayout()
+        screenWidth < 600 -> setupNormalLayout()
+        else -> setupExpandedLayout()
+    }
+}
+```
+
+### 3. 深色模式支持
+```kotlin
+// ✅ 正確：主題感知的顏色使用
+private fun setupThemeAwareColors() {
+    val primaryColor = ContextCompat.getColor(requireContext(), R.color.primary)
+    val backgroundColor = ContextCompat.getColor(requireContext(), R.color.background)
+    
+    binding.root.setBackgroundColor(backgroundColor)
+    binding.titleText.setTextColor(primaryColor)
+}
+```
+
+---
+
+## 🔒 安全機制
+
+### 1. 時間限制實現
+```kotlin
+// ✅ 正確：安全時間限制
+object SafetyManager {
+    const val MAX_SERVICE_RUNTIME = 3 * 60 * 60 * 1000L // 3小時
+    const val MIN_VIBRATION_INTERVAL = 10 * 60 * 1000L // 10分鐘
+    
+    fun canTriggerVibration(context: Context): Boolean {
+        val lastVibrationTime = getLastVibrationTime(context)
+        val timeSinceLastVibration = System.currentTimeMillis() - lastVibrationTime
+        return timeSinceLastVibration >= MIN_VIBRATION_INTERVAL
+    }
+}
+```
+
+### 2. 冷卻期機制
+```kotlin
+// ✅ 正確：15分鐘冷卻期
+class WatchModeManager {
+    companion object {
+        const val COOLDOWN_PERIOD = 15 * 60 * 1000L // 15分鐘
+    }
+    
+    private fun onTimeVibrationTriggered() {
+        lastVibrationTime = System.currentTimeMillis()
+        stopWatchMode("vibration_triggered")
+        startCooldownCountdown()
+    }
+}
+```
+
+### 3. 電池優化處理
+```kotlin
+// ✅ 正確：電池優化檢查
+class BatteryOptimizationHelper {
+    fun checkBatteryOptimization(context: Context): Boolean {
+        val powerManager = context.getSystemService(Context.POWER_SERVICE) as PowerManager
+        return powerManager.isIgnoringBatteryOptimizations(context.packageName)
+    }
+    
+    fun requestBatteryOptimizationExemption(activity: Activity) {
+        val intent = Intent(Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS).apply {
+            data = Uri.parse("package:${activity.packageName}")
+        }
+        activity.startActivity(intent)
+    }
+}
+```
+
+---
+
+## ⚡ 性能優化
+
+### 1. 記憶體管理
+```kotlin
+// ✅ 正確：及時釋放資源
+class VibrationService : Service() {
+    private var wakeLock: PowerManager.WakeLock? = null
+    
+    override fun onDestroy() {
+        super.onDestroy()
+        wakeLock?.release()
+        wakeLock = null
+    }
+}
+
+// Fragment 中的 ViewBinding 清理
+override fun onDestroyView() {
+    super.onDestroyView()
+    _binding = null
+}
+```
+
+**Android 14 記憶體限制：**
+- `mlock()` 的最大記憶體鎖定限制為每個進程 64 KB
+- 檢查應用是否依賴於更高的記憶體鎖定並進行相應調整
+
+### 2. 背景任務優化
+```kotlin
+// ✅ 正確：使用 WorkManager 處理背景任務
+class VibrationWorkManager {
+    fun schedulePeriodicCheck(context: Context) {
+        val constraints = Constraints.Builder()
+            .setRequiredNetworkType(NetworkType.NOT_REQUIRED)
+            .setRequiresBatteryNotLow(true)
+            .build()
+            
+        val workRequest = PeriodicWorkRequestBuilder<SafetyCheckWorker>(15, TimeUnit.MINUTES)
+            .setConstraints(constraints)
+            .build()
+            
+        WorkManager.getInstance(context).enqueueUniquePeriodicWork(
+            "safety_check",
+            ExistingPeriodicWorkPolicy.KEEP,
+            workRequest
+        )
+    }
+}
+```
+
+### 3. 感測器優化
+```kotlin
+// ✅ 正確：優化感測器處理頻率
+override fun onSensorChanged(event: SensorEvent?) {
+    val currentTime = System.currentTimeMillis()
+    
+    // 避免過度頻繁的處理
+    if (currentTime - lastProcessTime < PROCESS_INTERVAL) {
+        return
+    }
+    lastProcessTime = currentTime
+    
+    // 處理感測器數據
+    processSensorData(event)
+}
+```
+
+---
+
+## 🧪 測試規範
+
+### 1. 單元測試
+```kotlin
+// ✅ 正確：完整的單元測試
+class SafetyManagerTest {
+    @Test
+    fun `test frequency limit prevents rapid vibrations`() {
+        val context = mockk<Context>()
+        val sharedPreferences = mockk<SharedPreferences>()
+        
+        every { context.getSharedPreferences(any(), any()) } returns sharedPreferences
+        every { sharedPreferences.getLong("last_vibration_time", 0L) } returns 
+            System.currentTimeMillis() - 5000L // 5秒前
+        
+        val canTrigger = SafetyManager.canTriggerVibration(context)
+        assertFalse(canTrigger)
+    }
+}
+```
+
+### 2. UI 測試
+```kotlin
+// ✅ 正確：UI 自動化測試
+@RunWith(AndroidJUnit4::class)
+class HomeFragmentTest {
+    @get:Rule
+    val activityRule = ActivityScenarioRule(MainActivity::class.java)
+    
+    @Test
+    fun testStartServiceButton() {
+        onView(withId(R.id.startServiceButton))
+            .perform(click())
+            
+        onView(withId(R.id.serviceStatusText))
+            .check(matches(withText(R.string.service_running)))
+    }
+}
+```
+
+### 3. 整合測試
+```kotlin
+// ✅ 正確：服務整合測試
+class VibrationServiceIntegrationTest {
+    @Test
+    fun testServiceLifecycle() {
+        val context = InstrumentationRegistry.getInstrumentation().targetContext
+        val intent = Intent(context, VibrationService::class.java)
+        
+        // 啟動服務
+        context.startForegroundService(intent)
+        
+        // 驗證服務狀態
+        assertTrue(ServiceManager.isVibrationServiceRunning(context))
+        
+        // 停止服務
+        context.stopService(intent)
+        
+        // 驗證服務已停止
+        assertFalse(ServiceManager.isVibrationServiceRunning(context))
+    }
+}
+```
+
+---
+
+## 📚 文檔規範
+
+### 1. 代碼註釋
+```kotlin
+/**
+ * Watch Mode 管理器
+ * 實現合規的限時感測器監聽機制，符合 Android 12+ 背景限制
+ * 
+ * @param context 應用上下文
+ * @see WatchModeCallback 回調接口
+ * @since 1.3.0
+ */
+class WatchModeManager(private val context: Context) : SensorEventListener {
+    
+    /**
+     * 啟動 Watch Mode
+     * @param duration 監聽時長 (10分鐘或2小時)
+     * @return 是否成功啟動
+     * @throws SecurityException 當權限不足時
+     */
+    fun startWatchMode(duration: Long = WATCH_MODE_DURATION_10MIN): Boolean {
+        // 實現細節...
+    }
+}
+```
+
+### 2. README 維護
+```markdown
+## 🔧 開發設定
+
+### 環境需求
+- Android Studio Hedgehog | 2023.1.1 或更新版本
+- JDK 11 或更新版本
+- Android SDK API 34
+
+### 依賴版本
+```gradle
+android {
+    compileSdk 34
+    minSdk 24
+    targetSdk 34
+}
+```
+
+### 編譯指令
+```bash
+# Debug 版本
+./gradlew assembleDebug
+
+# Release 版本
+./gradlew assembleRelease
+```
+```
+
+### 3. API 文檔
+```kotlin
+/**
+ * 震動報時助手
+ * 
+ * 提供多種震動模式來表示時間：
+ * - 基本模式：長震動表示小時，短震動表示分鐘
+ * - 二進制模式：使用 0/1 震動模式
+ * - 摩斯電碼模式：使用標準摩斯電碼
+ * 
+ * @author Vibtime Team
+ * @version 1.3.0
+ */
+object TimeVibrationHelper {
+    /**
+     * 震動當前時間
+     * @param context 應用上下文
+     * @param hour 小時 (0-23)
+     * @param minute 分鐘 (0-59)
+     */
+    fun vibrateTime(context: Context, hour: Int, minute: Int) {
+        // 實現細節...
+    }
+}
+```
+
+---
+
+## 🧱 Essential Code Elements
+- Use **Kotlin** as primary language
+- Use **Android Jetpack** components (ViewModel, LiveData, Room, Navigation)
+- Vibration logic should use `Vibrator` and `VibrationEffect` from Android SDK
+- Persistent data stored using **Room Database** or **SharedPreferences**
+- Use **Android Resources** for multi-language support (`strings.xml`)
+- Navigation handled by **Navigation Component**
+- UI components use **Material Design 3** and **ConstraintLayout**
+- Background services use **Foreground Service** with proper notifications
+- Use **MVVM** architecture pattern with Repository pattern
+- Follow **Android 14+** background restrictions and battery optimization
+- Use **ViewBinding** for view access (avoid findViewById)
+- Implement proper **permission handling** and **runtime permissions**
+- Implement **WatchModeManager** for compliant sensor usage
+- Use **SafetyManager** for time limits and cooldown periods
+
+---
+
+## 📁 File & Module Structure (enforced)
+
+以下是 Vibtime 專案的模組與命名規範，請依此生成並放置相關檔案與邏輯。
+
+```
+app/src/main/java/com/example/vibtime/
+├── ui/
+│   ├── home/
+│   │   ├── HomeFragment.kt
+│   │   └── HomeViewModel.kt
+│   ├── settings/
+│   │   ├── SettingsFragment.kt
+│   │   └── SettingsViewModel.kt
+│   ├── vibration/
+│   │   ├── VibrationFragment.kt
+│   │   └── VibrationViewModel.kt
+│   ├── running/
+│   │   ├── RunningFragment.kt
+│   │   └── RunningViewModel.kt
+│   ├── history/
+│   │   ├── HistoryFragment.kt
+│   │   └── HistoryViewModel.kt
+│   └── welcome/
+│       ├── WelcomeFragment.kt
+│       └── WelcomeViewModel.kt
+├── service/
+│   ├── VibrationService.kt
+│   ├── TapDetectionService.kt
+│   ├── ScreenReceiver.kt
+│   └── TimeVibrationHelper.kt
+├── data/
+│   ├── repository/
+│   │   ├── SettingsRepository.kt
+│   │   └── HistoryRepository.kt
+│   └── database/
+│       ├── VibtimeDatabase.kt
+│       ├── entities/
+│       └── dao/
+├── utils/
+│   ├── PermissionHelper.kt
+│   ├── NotificationHelper.kt
+│   └── BatteryOptimizationHelper.kt
+├── MainActivity.kt
+└── VibtimeApplication.kt
+```
+
+- 每個畫面（Fragment）模組應有獨立資料夾
+- 畫面元件檔案命名為：`{PageName}Fragment.kt`
+- 對應 ViewModel 檔案命名為：`{PageName}ViewModel.kt`
+- 服務邏輯集中於 `service/` 目錄
+- 資料存取邏輯集中於 `data/` 目錄
+- 工具類別集中於 `utils/` 目錄
+
+---
+
+## ❌ Deprecated Patterns
+- Avoid using **AsyncTask** (deprecated)
+- Do **not** use deprecated `navigator` or `Alert.prompt` APIs
+- Avoid **polling** background tasks unless absolutely necessary
+- Do not use **hardcoded strings** – use `@string/` resources
+- Do not directly manipulate **SharedPreferences** in UI code
+- Avoid **findViewById** - use **ViewBinding** instead
+- Do not use **deprecated vibration APIs** (use VibrationEffect)
+
+---
+
+## 🧩 Key Module Examples
+
+### 1. Vibration Trigger Logic
+```kotlin
+object TimeVibrationHelper {
+    fun vibrateTime(context: Context, hour: Int, minute: Int) {
+        val vibrator = context.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+        
+        val hourVibrations = hour % 12 // 12小時制
+        val minuteVibrations = floor(minute / 5.0).toInt() // 每5分鐘一次
+        
+        val pattern = mutableListOf<Long>()
+        repeat(hourVibrations) {
+            pattern.add(600) // 長震動
+            pattern.add(300) // 間隔
+        }
+        pattern.add(1000) // 分隔符
+        repeat(minuteVibrations) {
+            pattern.add(200) // 短震動
+            pattern.add(200) // 間隔
+        }
+        
+        vibrator.vibrate(VibrationEffect.createWaveform(pattern.toLongArray(), -1))
+    }
+}
+```
+
+📌 *目前為節省電力與避免過長震動，每 5 分鐘為一單位，未來可能提供更高精度選項。請在 UI 中向使用者清楚說明震動含義與限制。*
+
+---
+
+### 2. ViewModel Pattern
+```kotlin
+class HomeViewModel : ViewModel() {
+    private val _isVibrationEnabled = MutableLiveData<Boolean>()
+    val isVibrationEnabled: LiveData<Boolean> = _isVibrationEnabled
+    
+    private val settingsRepository: SettingsRepository = SettingsRepository()
+    
+    fun toggleVibration() {
+        _isVibrationEnabled.value = !(_isVibrationEnabled.value ?: false)
+        settingsRepository.saveVibrationEnabled(_isVibrationEnabled.value ?: false)
+    }
+}
+```
+
+---
+
+### 3. Fragment with ViewBinding
+```kotlin
+class HomeFragment : Fragment() {
+    private var _binding: FragmentHomeBinding? = null
+    private val binding get() = _binding!!
+    
+    private val viewModel: HomeViewModel by viewModels()
+    
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+    
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+}
+```
+
+---
+
+### 4. Foreground Service
+```kotlin
+class VibrationService : Service() {
+    companion object {
+        private const val NOTIFICATION_ID = 1001
+        private const val CHANNEL_ID = "VibrationServiceChannel"
+    }
+    
+    override fun onCreate() {
+        super.onCreate()
+        createNotificationChannel()
+    }
+    
+    override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
+        val notification = createNotification()
+        startForeground(NOTIFICATION_ID, notification)
+        return START_STICKY
+    }
+}
+```
+
+---
+
+## 🚀 部署規範
+
+### 1. 版本管理
+```kotlin
+// ✅ 正確：版本號管理
+object AppVersion {
+    const val VERSION_NAME = "1.3.0"
+    const val VERSION_CODE = 13
+    
+    fun getVersionString(): String {
+        return "$VERSION_NAME (Build $VERSION_CODE)"
+    }
+}
+```
+
+### 2. 簽名配置
+```gradle
+// ✅ 正確：安全的簽名配置
+android {
+    signingConfigs {
+        release {
+            storeFile file('/path/to/keystore.jks')
+            storePassword System.getenv('KEYSTORE_PASSWORD')
+            keyAlias 'vibtime-key-alias'
+            keyPassword System.getenv('KEY_PASSWORD')
+        }
+    }
+    
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+```
+
+### 3. 發布檢查清單
+```markdown
+## 📋 發布前檢查清單
+
+### 功能檢查
+- [ ] 所有震動模式正常工作
+- [ ] 多語言切換正常
+- [ ] 深色模式適配完整
+- [ ] 無障礙功能正常
+
+### 合規檢查
+- [ ] Android 14+ 合規性
+- [ ] 感測器使用合規
+- [ ] 權限使用合理
+- [ ] 隱私政策完整
+
+### 性能檢查
+- [ ] 記憶體使用正常
+- [ ] 電池消耗合理
+- [ ] 啟動時間優化
+- [ ] 背景服務穩定
+
+### 測試檢查
+- [ ] 單元測試通過
+- [ ] UI 測試通過
+- [ ] 整合測試通過
+- [ ] 手動測試完成
+```
+
+---
+
+## ✅ Verification Checklist (AI must confirm before suggesting code)
+- [ ] All text strings use `@string/` resources
+- [ ] Vibration pattern includes hour/minute separation
+- [ ] Foreground service properly configured with notification
+- [ ] ViewBinding used instead of findViewById
+- [ ] ViewModel pattern used to separate UI logic
+- [ ] Repository pattern used for data access
+- [ ] Proper permission handling implemented
+- [ ] Battery optimization considerations included
+- [ ] App structure follows `ui/`, `service/`, `data/`, `utils/`
+- [ ] ProGuard rules configured for release builds
+- [ ] Android 14 compliance verified
+- [ ] Accessibility features implemented
+- [ ] Multi-language support verified
+
+---
+
+## 🧠 Common Pitfalls (AI must avoid)
+- ❌ Accessing vibration or SharedPreferences directly in Fragments
+- ❌ Skipping runtime permission checks
+- ❌ Not handling Android 12+ background restrictions
+- ❌ Using deprecated APIs
+- ❌ Not implementing proper error handling
+- ❌ Missing notification channels for Android 8+
+- ❌ Not following Material Design guidelines
+- ❌ Ignoring Android 14 specific requirements
+- ❌ Not implementing proper accessibility support
+- ❌ Missing multi-language resource files
+
+---
+
+## 🔐 Security & Performance Guidelines
+- Use **ProGuard/R8** for code obfuscation in release builds
+- Implement proper **signing configuration** for release
+- Use **encrypted SharedPreferences** for sensitive data
+- Implement **battery optimization** whitelist requests
+- Handle **Do Not Disturb** mode properly
+- Use **WorkManager** for background tasks when possible
+- Implement proper **error handling** and **crash reporting**
+- Follow **Android 14 security requirements**
+- Implement **Zip path traversal protection**
+- Handle **exact alarm permission changes**
+
+---
+
+## 🧼 Maintenance Guidelines
+Update this rules file when:
+- Android SDK version requirements change
+- New vibration APIs are introduced
+- Background service restrictions are updated
+- New permission requirements are added
+- Material Design guidelines are updated
+- ProGuard rules need modification
+- Storage key logic changes
+- Screen navigation or layout is restructured
+- Android 14+ compliance requirements change
+
+---
+
+## 📱 Platform-Specific Considerations
+- **Android 8+**: Foreground service notifications required
+- **Android 10+**: Background activity restrictions
+- **Android 12+**: Foreground service special use permissions
+- **Android 13+**: Notification permission required
+- **Android 14+**: Exact alarm permission changes, background activity restrictions, Zip path traversal protection
+- **Battery Optimization**: Request whitelist for background services
+- **Do Not Disturb**: Respect user's DND settings
+- **Accessibility**: Support up to 200% font scaling
+- **Regional Preferences**: Support user customizations for temperature units, first day of week, number system
+
+---
+
+## 🎯 總結
+
+這些編碼規範確保 Vibtime 項目：
+
+1. **✅ 符合 Android 14 最新合規要求**
+2. **✅ 提供優秀的無障礙體驗**
+3. **✅ 支持多語言和深色模式**
+4. **✅ 實現安全可靠的震動服務**
+5. **✅ 保持高性能和低耗電**
+6. **✅ 具備完整的測試覆蓋**
+7. **✅ 維護清晰的代碼文檔**
+
+遵循這些規範，確保 Vibtime 能夠為視障用戶提供最佳的時間感知體驗！🚀

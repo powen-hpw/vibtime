@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vibtime 原型</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', 'Noto Sans TC', Arial, sans-serif;
+      background: linear-gradient(135deg, #e0e3ea 0%, #cbe5f6 100%);
+      color: #222;
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .phone-frame {
+      background: #fafdff;
+      border-radius: 38px;
+      box-shadow: 0 8px 32px #0002, 0 1.5px 0 #fff inset;
+      width: 390px;
+      max-width: 98vw;
+      height: 800px;
+      max-height: 98vh;
+      margin: 2em auto;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      border: 2.5px solid #e0e3ea;
+    }
+    .phone-notch {
+      width: 80px;
+      height: 10px;
+      background: #d1d5db;
+      border-radius: 8px;
+      position: absolute;
+      top: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+    }
+    header { background: #8ecae6; color: #fff; padding: 1.2em 1em 1em 1em; text-align: center; font-size: 1.5em; letter-spacing: 2px; border-top-left-radius: 36px; border-top-right-radius: 36px; }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      background: #eaf6fb;
+      border-bottom: 1px solid #d0e6f6;
+      padding: 0.2em 0.5em;
+      gap: 0.5em;
+    }
+    nav button {
+      flex: 1 1 0;
+      background: #eaf6fb;
+      border: none;
+      border-radius: 12px 12px 0 0;
+      margin: 0 0.1em;
+      padding: 0.7em 0.2em 0.6em 0.2em;
+      font-size: 1.1em;
+      color: #277da1;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+      min-width: 0;
+      min-height: 48px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      white-space: normal;
+      word-break: break-word;
+    }
+    nav button.active {
+      background: #8ecae6;
+      color: #fff;
+      box-shadow: 0 2px 8px #8ecae633;
+    }
+    section { display: none; max-width: 420px; margin: 0 auto; padding: 2em 1em; }
+    section.active { display: block; }
+    .center { text-align: center; }
+    .big-btn {
+      width: 100%;
+      padding: 1.2em;
+      font-size: 1.2em;
+      margin: 1em 0;
+      border-radius: 8px;
+      border: none;
+      background: #8ecae6;
+      color: #fff;
+      cursor: pointer;
+      transition: background 0.2s;
+      white-space: normal;
+      word-break: break-word;
+    }
+    .big-btn:active { background: #277da1; }
+    .card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px #0001;
+      padding: 1.5em;
+      margin: 1em 0;
+      overflow-wrap: break-word;
+      word-break: break-word;
+    }
+    .option-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 1em 0;
+      gap: 0.5em;
+    }
+    .option-row label {
+      font-size: 1em;
+      flex: 1;
+      min-width: 0;
+      max-width: 60%;
+      white-space: normal;
+      word-break: break-word;
+      overflow-wrap: break-word;
+    }
+    .option-row input,
+    .option-row select,
+    .option-row button {
+      max-width: 40%;
+      min-width: 0;
+      white-space: normal;
+      word-break: break-word;
+    }
+    .fa-solid, .fa-regular { margin-right: 0.5em; }
+    .vib-demo { display: flex; gap: 0.5em; margin-top: 0.5em; }
+    .vib-dot { width: 18px; height: 18px; border-radius: 50%; background: #8ecae6; opacity: 0.5; animation: vib 0.5s infinite alternate; }
+    .vib-dot.long { width: 28px; height: 18px; }
+    @keyframes vib { to { opacity: 1; transform: scale(1.1); } }
+    .history-list { list-style: none; padding: 0; }
+    .history-list li { padding: 0.7em 0; border-bottom: 1px solid #eee; display: flex; align-items: center; }
+    .history-list li:last-child { border-bottom: none; }
+    .switch { position: relative; display: inline-block; width: 44px; height: 24px; }
+    .switch input { opacity: 0; width: 0; height: 0; }
+    .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background: #ccc; border-radius: 24px; transition: .4s; }
+    .slider:before { position: absolute; content: ""; height: 18px; width: 18px; left: 3px; bottom: 3px; background: white; border-radius: 50%; transition: .4s; }
+    input:checked + .slider { background: #8ecae6; }
+    input:checked + .slider:before { transform: translateX(20px); }
+    .setting-row { display: flex; align-items: center; justify-content: space-between; margin: 1.2em 0; }
+    .desc { color: #888; font-size: 0.95em; margin-top: 0.2em; }
+    .phone-content {
+      flex: 1;
+      min-height: 0;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+    }
+    @media (max-width: 480px) {
+      .phone-frame { width: 100vw; height: 100vh; border-radius: 0; }
+      section { padding: 1em 0.2em; }
+    }
+  </style>
+</head>
+<body style="background: linear-gradient(135deg, #e0e3ea 0%, #cbe5f6 100%);">
+  <div class="phones-demo" style="display:flex; flex-wrap:wrap; gap:32px; justify-content:center; align-items:flex-start; padding:32px 0;">
+    <!-- Welcome Page -->
+    <div class="phone-frame">
+      <div class="phone-notch"></div>
+      <header>Vibtime Vibration Timekeeper</header>
+      <nav>
+        <button class="active"><i class="fa-solid fa-hand-sparkles"></i><span>Welcome</span></button>
+        <button><i class="fa-solid fa-clock"></i><span>Home</span></button>
+        <button><i class="fa-solid fa-mobile-screen-button"></i><span>Vibration</span></button>
+        <button><i class="fa-solid fa-list"></i><span>History</span></button>
+      </nav>
+      <div class="phone-content">
+        <section class="active">
+          <div class="center">
+            <i class="fa-solid fa-hand-sparkles fa-3x" style="color:#8ecae6;"></i>
+            <h2>Welcome to Vibtime</h2>
+            <p>Get the time through vibration, anytime, anywhere.</p>
+            <button class="big-btn">Get Started</button>
+          </div>
+        </section>
+      </div>
+      <div class="center" style="padding-bottom:1em;color:#888;">Welcome Page</div>
+    </div>
+    <!-- Home Page -->
+    <div class="phone-frame">
+      <div class="phone-notch"></div>
+      <header>Vibtime Vibration Timekeeper</header>
+      <nav>
+        <button><i class="fa-solid fa-hand-sparkles"></i><span>Welcome</span></button>
+        <button class="active"><i class="fa-solid fa-clock"></i><span>Home</span></button>
+        <button><i class="fa-solid fa-mobile-screen-button"></i><span>Vibration</span></button>
+        <button><i class="fa-solid fa-list"></i><span>History</span></button>
+      </nav>
+      <div class="phone-content">
+        <section class="active">
+          <div class="center">
+            <h2><i class="fa-solid fa-clock"></i>Vibration Timekeeping</h2>
+            <div class="card">
+              <div class="option-row">
+                <label><i class="fa-solid fa-bell"></i>Hourly Vibration</label>
+                <label class="switch">
+                  <input type="checkbox" checked>
+                  <span class="slider"></span>
+                </label>
+              </div>
+              <div class="option-row">
+                <label><i class="fa-solid fa-bell"></i>Half-hour Vibration</label>
+                <label class="switch">
+                  <input type="checkbox">
+                  <span class="slider"></span>
+                </label>
+              </div>
+              <div class="option-row">
+                <label><i class="fa-solid fa-hourglass-half"></i>Countdown Timer</label>
+                <button style="background:#eaf6fb; border:none; border-radius:6px; padding:0.5em 1em; color:#277da1;">Set</button>
+              </div>
+              <div class="option-row">
+                <label><i class="fa-solid fa-mobile-screen-button"></i>Vibration Mode</label>
+                <button style="background:#eaf6fb; border:none; border-radius:6px; padding:0.5em 1em; color:#277da1;">Set</button>
+              </div>
+            </div>
+            <button class="big-btn"><i class="fa-solid fa-play"></i>Start Timekeeping</button>
+          </div>
+        </section>
+      </div>
+      <div class="center" style="padding-bottom:1em;color:#888;">Home Page</div>
+    </div>
+    <!-- Vibration Page -->
+    <div class="phone-frame">
+      <div class="phone-notch"></div>
+      <header>Vibtime Vibration Timekeeper</header>
+      <nav>
+        <button><i class="fa-solid fa-hand-sparkles"></i><span>Welcome</span></button>
+        <button><i class="fa-solid fa-clock"></i><span>Home</span></button>
+        <button class="active"><i class="fa-solid fa-mobile-screen-button"></i><span>Vibration</span></button>
+        <button><i class="fa-solid fa-list"></i><span>History</span></button>
+      </nav>
+      <div class="phone-content">
+        <section class="active">
+          <h2><i class="fa-solid fa-mobile-screen-button"></i>Vibration Mode Settings</h2>
+          <div class="card">
+            <div class="option-row">
+              <label>Vibration Length</label>
+              <input type="range" min="100" max="1000" value="400"> <span>400ms</span>
+            </div>
+            <div class="option-row">
+              <label>Vibration Count</label>
+              <input type="number" min="1" max="10" value="2" style="width:60px;">
+            </div>
+            <div class="option-row">
+              <label>Interval</label>
+              <input type="range" min="100" max="2000" value="600"> <span>600ms</span>
+            </div>
+            <div class="desc">Preview:</div>
+            <div class="vib-demo">
+              <div class="vib-dot"></div>
+              <div class="vib-dot long"></div>
+              <div class="vib-dot"></div>
+            </div>
+            <button class="big-btn"><i class="fa-solid fa-floppy-disk"></i>Save Settings</button>
+          </div>
+          <div class="card" id="vib-rule-card">
+            <h3 style="margin-top:0"><i class="fa-solid fa-wave-square"></i> Time Vibration Rule</h3>
+            <div style="margin-bottom:0.7em;">
+              <b>Default:</b>
+              <ul style="margin:0 0 0.5em 1.2em; padding:0; color:#444; font-size:1em;">
+                <li>Hour: <span style="color:#8ecae6"><i class="fa-solid fa-grip-lines-vertical"></i> Long vibration</span>, count = hour</li>
+                <li>Minute: <span style="color:#8ecae6"><i class="fa-solid fa-grip-lines"></i> Short vibration</span>, every 5 min, count = (minute/5)</li>
+              </ul>
+            </div>
+            <div class="desc">Example:<br>Now 3:15, will vibrate <b>3 long</b> and <b>3 short</b>.</div>
+            <div class="vib-demo" style="margin:0.7em 0 1em 0;">
+              <div class="vib-dot long" title="hour"></div>
+              <div class="vib-dot long" title="hour"></div>
+              <div class="vib-dot long" title="hour"></div>
+              <span style="width:16px;"></span>
+              <div class="vib-dot" title="minute"></div>
+              <div class="vib-dot" title="minute"></div>
+              <div class="vib-dot" title="minute"></div>
+            </div>
+            <button class="big-btn" style="background:#eaf6fb; color:#277da1;"><i class="fa-solid fa-sliders"></i>Customize Rule</button>
+            <form id="custom-rule-form" style="display:none; margin-top:1em;">
+              <div style="font-weight:bold; margin-bottom:0.5em;">Custom Hour Vibration</div>
+              <div class="option-row">
+                <label>Length</label>
+                <input type="number" min="100" max="2000" value="600" style="width:70px;"> ms
+              </div>
+              <div class="option-row">
+                <label>Interval</label>
+                <input type="number" min="50" max="2000" value="300" style="width:70px;"> ms
+              </div>
+              <div style="font-weight:bold; margin:1em 0 0.5em 0;">Custom Minute Vibration</div>
+              <div class="option-row">
+                <label>Length</label>
+                <input type="number" min="50" max="1000" value="200" style="width:70px;"> ms
+              </div>
+              <div class="option-row">
+                <label>Interval</label>
+                <input type="number" min="50" max="2000" value="200" style="width:70px;"> ms
+              </div>
+              <div class="option-row">
+                <label>Every x min</label>
+                <input type="number" min="1" max="30" value="5" style="width:70px;"> min
+              </div>
+              <button class="big-btn" type="button" style="margin-top:1em;"><i class="fa-solid fa-floppy-disk"></i>Save Custom</button>
+            </form>
+          </div>
+        </section>
+      </div>
+      <div class="center" style="padding-bottom:1em;color:#888;">Vibration Page</div>
+    </div>
+    <!-- History Page -->
+    <div class="phone-frame">
+      <div class="phone-notch"></div>
+      <header>Vibtime Vibration Timekeeper</header>
+      <nav>
+        <button><i class="fa-solid fa-hand-sparkles"></i><span>Welcome</span></button>
+        <button><i class="fa-solid fa-clock"></i><span>Home</span></button>
+        <button><i class="fa-solid fa-mobile-screen-button"></i><span>Vibration</span></button>
+        <button class="active"><i class="fa-solid fa-list"></i><span>History</span></button>
+      </nav>
+      <div class="phone-content">
+        <section class="active">
+          <h2><i class="fa-solid fa-list"></i>History</h2>
+          <ul class="history-list">
+            <li><i class="fa-regular fa-clock"></i> 2024/06/01 09:00 Hourly Vibration</li>
+            <li><i class="fa-regular fa-clock"></i> 2024/06/01 08:30 Half-hour Vibration</li>
+            <li><i class="fa-regular fa-hourglass"></i> 2024/05/31 22:00 Countdown 10 min</li>
+          </ul>
+          <div class="center">
+            <button class="big-btn" style="background:#eaf6fb; color:#277da1;"><i class="fa-solid fa-trash"></i>Clear History</button>
+          </div>
+        </section>
+      </div>
+      <div class="center" style="padding-bottom:1em;color:#888;">History Page</div>
+    </div>
+    <!-- Settings Page -->
+    <div class="phone-frame">
+      <div class="phone-notch"></div>
+      <header>Vibtime Vibration Timekeeper
+        <button id="header-setting-btn" style="position:absolute;top:18px;right:24px;background:none;border:none;outline:none;cursor:pointer;padding:0.3em;">
+          <i class="fa-solid fa-gear" style="font-size:1.5em;color:#fff;"></i>
+        </button>
+      </header>
+      <nav>
+        <button><i class="fa-solid fa-hand-sparkles"></i><span>Welcome</span></button>
+        <button><i class="fa-solid fa-clock"></i><span>Home</span></button>
+        <button><i class="fa-solid fa-mobile-screen-button"></i><span>Vibration</span></button>
+        <button><i class="fa-solid fa-list"></i><span>History</span></button>
+      </nav>
+      <div class="phone-content">
+        <section class="active">
+          <h2><i class="fa-solid fa-gear"></i>Settings</h2>
+          <div class="card">
+            <div class="setting-row">
+              <label><i class="fa-solid fa-language"></i>Language</label>
+              <select>
+                <option selected>English</option>
+                <option>中文</option>
+                <option>日本語</option>
+                <option>Español</option>
+              </select>
+            </div>
+            <div class="setting-row">
+              <label><i class="fa-solid fa-moon"></i>Night mode</label>
+              <label class="switch">
+                <input type="checkbox">
+                <span class="slider"></span>
+              </label>
+            </div>
+            <div class="setting-row">
+              <label><i class="fa-solid fa-bell-slash"></i>Do Not Disturb</label>
+              <input type="time" value="22:00"> ~ <input type="time" value="07:00">
+            </div>
+            <div class="setting-row">
+              <label><i class="fa-solid fa-circle-info"></i>About</label>
+              <span>Vibtime v1.0</span>
+            </div>
+          </div>
+        </section>
+      </div>
+      <div class="center" style="padding-bottom:1em;color:#888;">Settings Page</div>
+    </div>
+    <!-- Running Page -->
+    <div class="phone-frame">
+      <div class="phone-notch"></div>
+      <header>Vibtime Vibration Timekeeper</header>
+      <nav>
+        <button><i class="fa-solid fa-hand-sparkles"></i><span>Welcome</span></button>
+        <button><i class="fa-solid fa-clock"></i><span>Home</span></button>
+        <button><i class="fa-solid fa-mobile-screen-button"></i><span>Vibration</span></button>
+        <button><i class="fa-solid fa-list"></i><span>History</span></button>
+      </nav>
+      <div class="phone-content">
+        <section class="active">
+          <div class="center">
+            <i class="fa-solid fa-stopwatch fa-3x" style="color:#8ecae6;"></i>
+            <h2>Timekeeping Running</h2>
+            <div class="card" style="margin-top:1.5em;">
+              <div style="font-size:1.1em;margin-bottom:1em;">
+                Current Time: <span>12:34:56</span>
+              </div>
+              <div style="font-size:1.1em;margin-bottom:1em;">
+                Next Vibration: <span>13:00</span>
+              </div>
+              <div style="margin:1.5em 0;">
+                <i class="fa-solid fa-mobile-screen-button fa-bounce" style="font-size:2em;color:#8ecae6;"></i>
+                <div style="margin-top:0.5em;color:#277da1;font-weight:bold;">Vibrating...</div>
+              </div>
+              <button class="big-btn"><i class="fa-solid fa-stop"></i>Stop</button>
+            </div>
+          </div>
+        </section>
+      </div>
+      <div class="center" style="padding-bottom:1em;color:#888;">Running Page</div>
+    </div>
+  </div>
+</body>

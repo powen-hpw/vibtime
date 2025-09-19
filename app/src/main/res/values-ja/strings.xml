@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App 基本情報 -->
+    <string name="app_name">Vibtime</string>
+    <string name="app_subtitle">振動時報</string>
+    
+    <!-- Navigation -->
+    <string name="nav_welcome">ようこそ</string>
+    <string name="nav_home">ホーム</string>
+    <string name="nav_vibration">振動</string>
+    <string name="nav_history">履歴</string>
+    <string name="nav_settings">設定</string>
+    <string name="nav_running">実行中</string>
+    
+    <!-- Welcome Page -->
+    <string name="welcome_title">Vibtime</string>
+    <string name="welcome_subtitle">振動時報サービス</string>
+    <string name="welcome_features_title">主要機能</string>
+    <string name="welcome_feature_1">• スマートフォンを2回タップして振動時報を取得</string>
+    <string name="welcome_feature_2">• 画面がオフでも使用可能</string>
+    <string name="welcome_feature_3">• 画面を見る必要がない</string>
+    <string name="welcome_feature_4">• 静かな環境に最適</string>
+    <string name="welcome_scenarios_title">使用シーン</string>
+    <string name="welcome_scenario_1">• 就寝時 - 明かりを付けずに時間確認</string>
+    <string name="welcome_scenario_2">• 会議中 - 控えめに時間確認</string>
+    <string name="welcome_scenario_3">• 暗い環境</string>
+    <string name="welcome_scenario_4">• 手が塞がっている時</string>
+    <string name="welcome_get_started">使い始める</string>
+    
+    <!-- Home Page -->
+    <string name="home_title">振動時報</string>
+    <string name="hourly_vibration">毎時振動</string>
+    <string name="half_hour_vibration">30分振動</string>
+    <string name="countdown_timer">カウントダウン</string>
+    <string name="vibration_mode">振動モード</string>
+    <string name="btn_set">設定</string>
+    <string name="btn_start_timekeeping">時報開始</string>
+    
+    <!-- Vibration Page -->
+    <string name="vibration_title">振動モード設定</string>
+    <string name="vibration_length">振動長さ</string>
+    <string name="vibration_count">振動回数</string>
+    <string name="vibration_interval">間隔</string>
+    <string name="vibration_preview">プレビュー：</string>
+    <string name="btn_save_settings">設定保存</string>
+    <string name="time_vibration_rule">時間振動ルール</string>
+    <string name="rule_default">デフォルト：</string>
+    <string name="rule_hour">時間：長い振動、回数 = 時間</string>
+    <string name="rule_minute">分：短い振動、5分ごと、回数 = (分/5)</string>
+    <string name="btn_customize_rule">ルールカスタマイズ</string>
+    
+    <!-- History Page -->
+    <string name="btn_clear_history">履歴クリア</string>
+    
+    <!-- Settings Page -->
+    <string name="settings_title">設定</string>
+    <string name="language">言語</string>
+    <string name="night_mode">夜間モード</string>
+    <string name="do_not_disturb">おやすみモード</string>
+    <string name="about">について</string>
+    
+    <!-- Tap Settings -->
+    <string name="tap_to_vibrate">タップ振動</string>
+    <string name="tap_count">タップ回数</string>
+    <string name="tap_sensitivity">タップ感度</string>
+    <string name="btn_test_tap">タップテスト</string>
+    
+    <!-- Running Page -->
+    <string name="running_title">時報実行中</string>
+    <string name="current_time">現在時刻：</string>
+    <string name="next_vibration">次回振動：</string>
+    <string name="vibrating">振動中...</string>
+    <string name="btn_stop">停止</string>
+    
+    <!-- Vibration Instructions -->
+    <string name="vibration_instructions_title">振動説明</string>
+    <string name="vibration_instructions_content">振動は現在の「時間」と「分」をそれぞれ示します。\n\n電力節約と長時間振動を避けるため、5分単位で使用されます。例：\n• 3時12分 → 3回の長い振動、3時を表す\n• 間隔後に2回の短い振動、10分を表す（最も近い5分単位）\n\nより高精度の振動モードは後日提供予定です。</string>
+    
+    <!-- Common -->
+    <string name="btn_save">保存</string>
+    <string name="btn_cancel">キャンセル</string>
+    <string name="btn_test">テスト</string>
+    <string name="btn_ok">OK</string>
+    
+    <!-- Units -->
+    <string name="unit_ms">ミリ秒</string>
+    <string name="unit_min">分</string>
+    
+    <!-- Sensitivity -->
+    <string name="sensitivity_low">低</string>
+    <string name="sensitivity_medium">中</string>
+    <string name="sensitivity_high">高</string>
+    
+    <!-- Language Options -->
+    <string name="language_system">システムに従う</string>
+    <string name="language_zh_tw">繁体中国語</string>
+    <string name="language_en">English</string>
+    <string name="language_zh_cn">簡体中国語</string>
+    <string name="language_ja">日本語</string>
+    
+    <!-- Ad Related -->
+    <string name="ad_fallback_message">ご支援ありがとうございます！このアプリが気に入ったら、評価をお願いします</string>
+    <string name="rate_app">評価</string>
+    <string name="ad_loading">広告読み込み中...</string>
+    <string name="ad_failed_to_load">広告の読み込みに失敗しました</string>
+    
+    <!-- Language Change Dialog -->
+    <string name="language_dialog_title">言語選択 / Choose Language</string>
+    <string name="language_changed_title">言語が変更されました</string>
+    <string name="language_changed_message">言語変更を適用するには、アプリを再起動する必要があります。</string>
+    <string name="restart_now">今すぐ再起動</string>
+    <string name="restart_later">後で再起動</string>
+    <string name="cancel">キャンセル</string>
+    <string name="restart_error">アプリを再起動できません</string>
+    
+    <!-- Version -->
+    <string name="app_version">Vibtime v1.1</string>
+    
+    <!-- Home Fragment -->
+    <string name="btn_test_basic_vibration">基本振動テスト</string>
+    <string name="btn_test_time_vibration">時間振動テスト</string>
+    <string name="btn_show_current_time">現在時刻表示</string>
+    <string name="btn_start_tap_detection">タップ検出開始</string>
+    <string name="btn_start_background_service">バックグラウンドサービス開始</string>
+    <string name="btn_check_tap_settings">タップ設定確認</string>
+    <string name="tap_sensitivity_label">タップ感度: </string>
+    <string name="tap_detection_status">🎯 タップ検出状態</string>
+    <string name="status_not_started">未開始</string>
+    <string name="tap_count_default">タップ回数: 0/2</string>
+    <string name="last_tap_default">最後のタップ: --</string>
+    <string name="home_instructions">💡 マイルストーン3：バックグラウンドサービス版\n\n🔸 基本振動：500ms単発振動\n🔸 時間振動：現在時刻に基づく振動パターン\n🔸 タップ検出：感度選択、スマートフォンを2回タップ\n🔸 バックグラウンドサービス：画面オフでも動作\n\n📱 使用方法：\n1. タップ感度を選択\n2. 「バックグラウンドサービス開始」をクリック\n3. 画面をオフにする\n4. スマートフォンを2回タップして時刻を取得\n\n長い振動 = 時間 | 短い振動 = 分/5</string>
+    
+    <!-- Settings Fragment -->
+    <string name="general_settings">📋 一般設定</string>
+    <string name="language_setting">🌍 言語</string>
+    <string name="vibration_settings">🔊 振動設定</string>
+    <string name="vibration_duration">⏱️ 振動時間</string>
+    <string name="service_notifications">🔔 サービス通知</string>
+    <string name="advanced_settings">🔧 詳細設定</string>
+    <string name="battery_optimization">🔋 バッテリー最適化</string>
+    <string name="about_section">ℹ️ について</string>
+    <string name="about_vibtime">📱 Vibtimeについて</string>
+    <string name="reset_all_settings">🔄 全設定リセット</string>
+    <string name="arrow_right">></string>
+    
+    <!-- History Fragment -->
+    <string name="history_page_title">📊 使用履歴</string>
+    <string name="today_stats">📅 今日の統計</string>
+    <string name="today_usage_fmt">起動回数: %1$d | 振動回数: %2$d</string>
+    <string name="last_vibration_fmt">最後の振動: %1$s</string>
+    <string name="last_use_default">最後の使用: --</string>
+    <string name="week_stats">📈 今週の統計</string>
+    <string name="week_usage_fmt">今週の使用: %1$d 回</string>
+    <string name="week_avg_fmt">週平均: %1$d 回/日</string>
+    <string name="total_stats">🏆 総計統計</string>
+    <string name="total_usage_fmt">総起動: %1$d | 総振動: %2$d</string>
+    <string name="first_use_fmt">初回使用: %1$s</string>
+    <string name="first_use_none">初回使用: 記録なし</string>
+    <string name="history_usage_fmt">使用 %1$d 回</string>
+    <string name="history_time_check">時刻確認</string>
+    <string name="history_empty_title">ヒント</string>
+    <string name="history_empty_desc">Vibtimeを使用すると、ここに使用履歴が表示されます</string>
+    <string name="clear_history_dialog_title">⚠️ 使用履歴クリア</string>
+    <string name="clear_history_dialog_message">すべての使用履歴をクリアしますか？\n\nこれにより削除されます：\n• 日次使用統計\n• 履歴記録\n• 使用時間記録\n\nこの操作は元に戻せません！</string>
+    <string name="clear_history_confirm">クリア確認</string>
+    <string name="history_title">📋 使用履歴</string>
+    <string name="clear_history">🗑️ 使用履歴クリア</string>
+
+    <!-- Vibration Fragment -->
+    <string name="vibration_settings_title">🔊 振動設定</string>
+    <string name="basic_vibration_settings">⚡ 基本振動設定</string>
+    <string name="basic_vibration_hint">基本振動の時間を調整</string>
+    <string name="duration_label">時間: </string>
+    <string name="test_basic_vibration">基本振動テスト</string>
+    <string name="time_vibration_settings">⏰ 時間振動設定</string>
+    <string name="time_vibration_hint">時間と分の振動時間を個別に調整</string>
+    <string name="hour_vibration_label">時間振動: </string>
+    <string name="minute_vibration_label">分振動: </string>
+    <string name="test_current_time">現在時刻テスト</string>
+    <string name="custom_time_test">🎯 カスタム時刻テスト</string>
+    <string name="custom_time_hint">特定の時刻を設定して振動効果をテスト</string>
+    <string name="hour_label">時間: </string>
+    <string name="minute_label">分: </string>
+    <string name="test_custom_time">カスタム時刻テスト</string>
+    <string name="preview_title">📋 振動パターンプレビュー</string>
+    <string name="preview_loading">プレビュー読み込み中...</string>
+
+    <!-- Running Fragment -->
+    <string name="service_center_title">⚡ サービス制御センター</string>
+    <string name="service_stopped">🔴 バックグラウンドサービス停止中</string>
+    <string name="service_running">🟢 バックグラウンドサービス実行中</string>
+    <string name="uptime_placeholder">稼働時間: --</string>
+    <string name="start_service">サービス開始</string>
+    <string name="stop_service">サービス停止</string>
+    <string name="sensitivity_settings">🎯 タップ感度設定</string>
+    <string name="stats_title">📊 使用統計</string>
+    <string name="today_usage_fmt_label">今日の起動: %1$d 回</string>
+    <string name="total_usage_fmt_label">総使用: %1$d 回</string>
+    <string name="service_desc_long">💡 サービス制御説明：\n\n• サービス開始後は画面をオフにできます\n• スマートフォンを2回タップして振動時報を取得\n• 感度を調整して個人の習慣に合わせる\n• サービスはバックグラウンドで継続実行\n• 安定性のため省電力ホワイトリストに追加することを推奨</string>
+    
+    <!-- Notifications -->
+    <string name="notif_channel_vibration">振動サービス</string>
+    <string name="notif_channel_general">一般通知</string>
+    <string name="notif_channel_alerts">アラート通知</string>
+    <string name="notif_desc_vibration">振動サービスの実行状態を表示</string>
+    <string name="notif_desc_general">一般アプリ通知</string>
+    <string name="notif_desc_alerts">重要なリマインダーと警告</string>
+    <string name="notif_vibration_running">振動時報サービス実行中</string>
+    <string name="notif_tap_hint">画面をタップして現在時刻を取得</string>
+    <string name="notif_time_alert">時刻アラート</string>
+    <string name="notif_permission_title">権限リマインダー</string>
+    <string name="notif_permission_text">一部の機能は正常に動作するために通知権限が必要です</string>
+    
+    <!-- Permission Messages -->
+    <string name="permission_vibrate_desc">振動権限は振動時報機能に必要です</string>
+    <string name="permission_wake_lock_desc">ウェイクロック権限は画面を起動状態に保つために必要です</string>
+    <string name="permission_foreground_service_desc">フォアグラウンドサービス権限はバックグラウンドで振動サービスを実行するために必要です</string>
+    <string name="permission_notification_desc">通知権限は振動サービス通知を表示するために必要です</string>
+    <string name="permission_notification_title">通知権限</string>
+    <string name="permission_notification_rationale">Vibtimeは振動サービスの状態と時刻アラートを表示するために通知権限が必要です。これによりサービスの実行状態を把握し、時刻通知を受信できます。</string>
+    <string name="permission_notification_denied_title">通知権限が必要です</string>
+    <string name="permission_notification_denied_message">Vibtimeが正常に動作するには通知権限が必要です。設定で有効にして振動サービス通知と時刻アラートを受信してください。</string>
+    <string name="permission_general_desc">この機能は正常に動作するために関連する権限が必要です</string>
+    <string name="permission_explanation_title">権限の説明</string>
+    <string name="permission_grant">権限を許可</string>
+    <string name="permission_denied_title">権限が拒否されました</string>
+    <string name="permission_denied_message">一部の機能は正常に動作するために権限が必要です。設定で手動に権限を有効にしてください。</string>
+    <string name="permission_go_to_settings">設定に移動</string>
+    
+    <!-- Service Management -->
+    <string name="service_start_dialog_title">振動サービス開始</string>
+    <string name="service_start_dialog_message">振動サービスはバックグラウンドで実行され、タップを検出して時刻振動を提供します。このサービスは通知を表示し、バッテリー電力を消費する可能性があります。</string>
+    <string name="service_start_confirm">サービス開始</string>
+    <string name="service_permissions_missing_title">権限が必要です</string>
+    <string name="service_permissions_missing_message">振動サービスを開始するには以下の権限が必要です：\n\n• %1$s\n\n設定でこれらの権限を有効にしてください。</string>
+    
+    <!-- Safety Mechanism -->
+    <string name="notif_auto_stop_warning_title">Vibtimeサービスリマインダー</string>
+    <string name="notif_auto_stop_warning_text">バッテリー節約のため、15分後にサービスが自動停止します</string>
+    <string name="notif_auto_stop_title">Vibtimeサービス停止</string>
+    <string name="notif_auto_stop_text">3時間実行後、バッテリー節約のため自動停止しました</string>
+    <string name="notif_frequency_limit_title">使用制限</string>
+    <string name="notif_frequency_limit_text">%1$d 分後に再使用してください</string>
+    <string name="notif_safety_info_next_vibration">次回可能: %1$d 分後</string>
+    <string name="notif_safety_info_remaining_time">残り時間: %1$d 時間 %2$d 分</string>
+    
+    <!-- Enhanced Safety Mechanism -->
+    <string name="safety_timer_title">⏰ 安全タイマー</string>
+    <string name="safety_timer_placeholder">--:--</string>
+    <string name="safety_timer_desc">バッテリー節約のためサービスが自動停止します</string>
+    <string name="next_vibration_title">🔄 次回振動</string>
+    <string name="next_vibration_placeholder">--:--</string>
+    <string name="safety_emergency_stop">🛑 緊急停止</string>
+    <string name="safety_test_mode">🧪 テストモード</string>
+    <string name="safety_normal_mode">⚡ 通常モード</string>
+    <string name="safety_remaining_time_fmt" formatted="false">%1$d:%02d</string>
+    <string name="safety_next_vibration_fmt" formatted="false">%1$d:%02d</string>
+    <string name="safety_service_expired">サービス期限切れ</string>
+    <string name="safety_frequency_limit">頻度制限</string>
+    <string name="safety_auto_stop_soon">%1$d 分後に自動停止します</string>
+    <string name="safety_auto_stopped">サービスが自動停止しました</string>
+    <string name="test_mode_enabled">テストモード有効 (5分)</string>
+    <string name="normal_mode_enabled">通常モード有効 (3時間)</string>
+    <string name="service_emergency_stopped">サービスが緊急停止しました</string>
+    <string name="uptime_fmt">稼働時間: %1$s</string>
+    
+    <!-- Simplified Home Screen -->
+    <string name="btn_test_vibration">振動テスト</string>
+    <string name="btn_start_service">サービス開始</string>
+    <string name="btn_stop_service">サービス停止</string>
+    <string name="home_instructions_simple">下のボタンをタップして振動サービスを制御</string>
+    <string name="usage_instructions">使用方法：\n1. 「サービス開始」をタップしてバックグラウンド検出を有効化\n2. スマートフォンを2回タップして振動時報を取得\n3. 画面オフでも使用可能\n4. 安全性のため3時間後に自動停止</string>
+    
+    <!-- Safety Settings -->
+    <string name="safety_settings">安全設定</string>
+    <string name="auto_stop_enabled">3時間後に自動停止</string>
+    <string name="auto_stop_desc">安全性のため3時間後にサービスを自動停止</string>
+    <string name="frequency_limit_enabled">頻度制限 (10分)</string>
+    <string name="frequency_limit_desc">振動を10分に1回に制限</string>
+    <string name="test_mode_enabled_setting">テストモード (5分)</string>
+    <string name="test_mode_desc">時間制限が短いテストモードを有効化</string>
+    
+    <!-- Premium Purchase -->
+    <string name="premium_section">プレミアム機能</string>
+    <string name="premium_binary_title">バイナリ時報</string>
+    <string name="premium_binary_desc">短い長い振動でバイナリ形式の時刻を取得</string>
+    <string name="premium_binary_price">$0.99</string>
+    <string name="premium_binary_owned">所有済み</string>
+    <string name="premium_morse_title">モールス信号時報</string>
+    <string name="premium_morse_desc">点と線でモールス信号形式の時刻を取得</string>
+    <string name="premium_morse_price">$0.99</string>
+    <string name="premium_morse_owned">所有済み</string>
+    <string name="premium_feature_default">プレミアム機能</string>
+    <string name="premium_no_ads">広告なし</string>
+    <string name="premium_lifetime">永久</string>
+    <string name="premium_purchase_title">プレミアム版にアップグレード</string>
+    <string name="premium_purchase_message">高度な時報モードをアンロックし、すべての広告を削除！</string>
+    <string name="premium_purchase_later">後で</string>
+    <string name="premium_purchase_buy">今すぐ購入</string>
+    <string name="premium_purchase_price_label">価格</string>
+    <string name="premium_purchase_success">購入成功！</string>
+    <string name="premium_purchase_failed">購入に失敗しました。再試行してください。</string>
+    
+    <!-- Format strings and units -->
+    <string name="duration_format">%1$dms</string>
+    <string name="hour_format">%1$02d</string>
+    <string name="minute_format">%1$02d</string>
+    <string name="time_format_hour_minute">%1$02d:%2$02d</string>
+    <string name="date_format_yyyy_mm_dd">%1$d-%2$02d-%3$02d</string>
+    
+    <!-- Default values -->
+    <string name="default_duration_500ms">500ms</string>
+    <string name="default_duration_600ms">600ms</string>
+    <string name="default_duration_200ms">200ms</string>
+    <string name="default_hour_14">14</string>
+    <string name="default_minute_30">30</string>
+    
+    <!-- Icons -->
+    <string name="icon_phone">📱</string>
+    <string name="icon_arrow_right">></string>
+    
+    <!-- Example date and time -->
+    <string name="example_date">2024-01-01</string>
+    <string name="example_time">14:30</string>
+    
+    <!-- Time format -->
+    <string name="time_format_hh_mm_ss">%1$02d:%2$02d:%3$02d</string>
+    
+    <!-- Vibration Duration Options -->
+    <string name="vibration_duration_short">短い (300ms)</string>
+    <string name="vibration_duration_medium">中 (500ms)</string>
+    <string name="vibration_duration_long">長い (800ms)</string>
+    <string name="vibration_duration_extra_long">超長い (1200ms)</string>
+    <string name="vibration_duration_current_short">短い</string>
+    <string name="vibration_duration_current_medium">中</string>
+    <string name="vibration_duration_current_long">長い</string>
+    <string name="vibration_duration_current_extra_long">超長い</string>
+</resources>

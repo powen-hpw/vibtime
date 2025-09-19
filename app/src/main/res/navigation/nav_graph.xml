@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/welcomeFragment">
+
+    <fragment
+        android:id="@+id/welcomeFragment"
+        android:name="com.example.vibtime.ui.welcome.WelcomeFragment"
+        android:label="@string/welcome_title"
+        tools:layout="@layout/fragment_welcome" />
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.vibtime.ui.home.HomeFragment"
+        android:label="@string/home_title"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.vibtime.ui.settings.SettingsFragment"
+        android:label="@string/settings_title"
+        tools:layout="@layout/fragment_settings" />
+
+    <action
+        android:id="@+id/action_welcomeFragment_to_homeFragment"
+        app:destination="@id/homeFragment" />
+
+    <action
+        android:id="@+id/action_homeFragment_to_settingsFragment"
+        app:destination="@id/settingsFragment" />
+
+    <action
+        android:id="@+id/action_settingsFragment_to_homeFragment"
+        app:destination="@id/homeFragment" />
+
+</navigation>

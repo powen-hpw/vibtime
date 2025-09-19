@@ -1,0 +1,26 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.Vibtime" parent="Theme.Material3.DayNight">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/vibtime_primary</item>
+        <item name="colorPrimaryContainer">@color/vibtime_primary_dark</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorOnPrimaryContainer">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/vibtime_secondary</item>
+        <item name="colorSecondaryContainer">@color/vibtime_surface_variant</item>
+        <item name="colorOnSecondary">@color/text_primary</item>
+        <item name="colorOnSecondaryContainer">@color/text_primary</item>
+        <!-- Surface colors -->
+        <item name="colorSurface">@color/vibtime_surface</item>
+        <item name="colorSurfaceVariant">@color/vibtime_surface_variant</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+        <item name="colorOnSurfaceVariant">@color/text_secondary</item>
+        <!-- Background color -->
+        <item name="android:colorBackground">@color/vibtime_background</item>
+        <item name="colorOnBackground">@color/text_primary</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">@color/vibtime_primary_dark</item>
+        <!-- Customize your theme here. -->
+    </style>
+</resources>

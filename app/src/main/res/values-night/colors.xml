@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 深色模式主題顏色 -->
+    <color name="vibtime_primary">#64B5F6</color>
+    <color name="vibtime_primary_dark">#1976D2</color>
+    <color name="vibtime_secondary">#1E3A5F</color>
+    <color name="vibtime_surface">#1A1A1A</color>
+    <color name="vibtime_background">#121212</color>
+    
+    <!-- 深色模式文字顏色 -->
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#B3FFFFFF</color>
+    <color name="text_on_primary">#000000</color>
+    
+    <!-- 深色模式 Surface Variants -->
+    <color name="vibtime_surface_variant">#2D2D2D</color>
+    
+    <!-- 深色模式 Bottom Navigation 顏色 -->
+    <color name="bottom_nav_selected">#64B5F6</color>
+    <color name="bottom_nav_unselected">#757575</color>
+</resources>

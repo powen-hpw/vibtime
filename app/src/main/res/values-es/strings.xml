@@ -1,0 +1,465 @@
+<resources>
+    <!-- App 基本資訊 -->
+    <string name="app_name">Vibtime</string>
+    <string name="app_subtitle">Cronómetro de Vibración</string>
+    
+    <!-- Navigation -->
+    <string name="nav_welcome">Bienvenido</string>
+    <string name="nav_home">Inicio</string>
+    <string name="nav_vibration">Vibración</string>
+    <string name="nav_history">Historial</string>
+    <string name="nav_settings">Configuración</string>
+    <string name="nav_running">Ejecutando</string>
+    
+    <!-- Welcome Page -->
+    <string name="welcome_title">Vibtime</string>
+    <string name="welcome_subtitle">Servicio de Tiempo por Vibración</string>
+    <string name="welcome_features_title">Características Principales</string>
+    <string name="welcome_feature_1">• Toca tu teléfono dos veces para obtener vibración de tiempo</string>
+    <string name="welcome_feature_2">• Funciona incluso con pantalla apagada</string>
+    <string name="welcome_feature_3">• No necesitas mirar la pantalla</string>
+    <string name="welcome_feature_4">• Perfecto para ambientes silenciosos</string>
+    <string name="welcome_scenarios_title">Perfecto Para</string>
+    <string name="welcome_scenario_1">• Hora de dormir - verificar tiempo sin luz</string>
+    <string name="welcome_scenario_2">• Reuniones - verificación discreta del tiempo</string>
+    <string name="welcome_scenario_3">• Ambientes oscuros</string>
+    <string name="welcome_scenario_4">• Cuando las manos están ocupadas</string>
+    <string name="welcome_get_started">Comenzar</string>
+    
+    <!-- Home Page -->
+    <string name="home_title">Cronometraje por Vibración</string>
+    <string name="hourly_vibration">Vibración por Hora</string>
+    <string name="half_hour_vibration">Vibración por Media Hora</string>
+    <string name="countdown_timer">Temporizador de Cuenta Regresiva</string>
+    <string name="vibration_mode">Modo de Vibración</string>
+    <string name="btn_set">Establecer</string>
+    <string name="btn_start_timekeeping">Iniciar Cronometraje</string>
+    
+    <!-- Vibration Page -->
+    <string name="vibration_title">Configuración del Modo de Vibración</string>
+    <string name="vibration_length">Duración de Vibración</string>
+    <string name="vibration_count">Cantidad de Vibración</string>
+    <string name="vibration_interval">Intervalo</string>
+    <string name="vibration_preview">Vista Previa:</string>
+    <string name="btn_save_settings">Guardar Configuración</string>
+    <string name="time_vibration_rule">Regla de Vibración de Tiempo</string>
+    <string name="rule_default">Predeterminado:</string>
+    <string name="rule_hour">Hora: Vibración larga, cantidad = hora</string>
+    <string name="rule_minute">Minuto: Vibración corta, cada 5 min, cantidad = (minuto/5)</string>
+    <string name="btn_customize_rule">Personalizar Regla</string>
+    
+    <!-- History Page -->
+    <string name="btn_clear_history">Limpiar Historial</string>
+    
+    <!-- Settings Page -->
+    <string name="settings_title">Configuración</string>
+    <string name="language">Idioma</string>
+    <string name="night_mode">Modo nocturno</string>
+    <string name="do_not_disturb">No Molestar</string>
+    <string name="about">Acerca de</string>
+    <!-- Tap Settings -->
+    <string name="tap_to_vibrate">Tocar para Vibrar</string>
+    <string name="tap_count">Cantidad de Toques</string>
+    <string name="tap_sensitivity">Sensibilidad de Toque</string>
+    <string name="btn_test_tap">Probar Toque</string>
+    
+    <!-- Running Page -->
+    <string name="running_title">Cronometraje en Ejecución</string>
+    <string name="current_time">Hora Actual:</string>
+    <string name="next_vibration">Siguiente Vibración:</string>
+    <string name="vibrating">Vibrando...</string>
+    <string name="btn_stop">Detener</string>
+    
+    <!-- Vibration Instructions -->
+    <string name="vibration_instructions_title">Instrucciones de Vibración</string>
+    <string name="vibration_instructions_content">La vibración indica la \"hora\" y \"minutos\" actuales.\n\nPara ahorrar energía y evitar vibraciones excesivamente largas, se usa cada unidad de 5 minutos, por ejemplo:\n• 3:12 → 3 vibraciones largas, representando las 3 en punto\n• Después del intervalo, 2 vibraciones cortas, representando 10 minutos (unidad de 5 minutos más cercana)\n\nLos modos de vibración de mayor precisión estarán disponibles más tarde.</string>
+    
+    <!-- Common -->
+    <string name="btn_save">Guardar</string>
+    <string name="btn_cancel">Cancelar</string>
+    <string name="btn_test">Probar</string>
+    <string name="btn_ok">OK</string>
+    
+    <!-- Units -->
+    <string name="unit_ms">ms</string>
+    <string name="unit_min">min</string>
+    
+    <!-- Sensitivity -->
+    <string name="sensitivity_low">Baja</string>
+    <string name="sensitivity_medium">Media</string>
+    <string name="sensitivity_high">Alta</string>
+    
+    <!-- Ad Related -->
+    <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="interstitial_ad_unit_id">ca-app-pub-3940256099942544/1033173712</string>
+    <string name="ad_fallback_message">¡Gracias por tu apoyo! Si te gusta esta aplicación, por favor califícanos</string>
+    <string name="rate_app">Calificar</string>
+    <string name="ad_loading">Cargando anuncio...</string>
+    <string name="ad_failed_to_load">Error al cargar anuncio</string>
+    
+    <!-- Service Management -->
+    <string name="service_start_dialog_title">Iniciar Servicio de Vibración</string>
+    <string name="service_start_dialog_message">El servicio de vibración se ejecutará en segundo plano para detectar toques y proporcionar vibración de tiempo. Este servicio mostrará una notificación y puede usar energía de la batería.</string>
+    <string name="service_start_confirm">Iniciar Servicio</string>
+    <string name="service_permissions_missing_title">Permisos Requeridos</string>
+    <string name="service_permissions_missing_message">Se requieren los siguientes permisos para iniciar el servicio de vibración:\n\n• %1$s\n\nPor favor, habilita estos permisos en Configuración.</string>
+    
+    <!-- Vibration Preview -->
+    <string name="preview_time_vibration">⏰ Vista previa de vibración de tiempo: %1$s</string>
+    <string name="preview_hour_vibration">🕐 Vibración de hora: %1$d veces × %2$dms</string>
+    <string name="preview_minute_vibration">🔸 Vibración de minuto: %1$d veces × %2$dms</string>
+    <string name="preview_zero_vibration">🔸 Vibración cero: 1 vez × 300ms</string>
+    <string name="preview_mode_title">📋 Explicación del modo de vibración:</string>
+    <string name="preview_long_vibration">• Vibración larga = Hora (formato de 12 horas)</string>
+    <string name="preview_short_vibration">• Vibración corta = Minuto ÷ 5</string>
+    <string name="preview_zero_time">• El tiempo cero tendrá una sola vibración</string>
+    
+    <!-- Time Format -->
+    <string name="current_time_format">Hora actual: %1$s</string>
+    
+    <!-- Error Messages -->
+    <string name="cannot_open_app_store">No se puede abrir la tienda de aplicaciones</string>
+    
+    <!-- Sensitivity Descriptions -->
+    <string name="sensitivity_low_desc">Sensibilidad baja (toque normal)</string>
+    <string name="sensitivity_medium_desc">Sensibilidad media (toque ligero)</string>
+    <string name="sensitivity_high_desc">Sensibilidad alta (toque muy ligero)</string>
+    
+    <!-- Notification Messages -->
+    <string name="notification_tap_count">Cantidad de toques: %1$d/%2$d</string>
+    <string name="notification_service_running">Servicio de vibración ejecutándose - toca el teléfono dos veces para obtener la hora</string>
+    <string name="notification_sensitivity_updated">Sensibilidad actualizada: %1$s</string>
+    <string name="notification_tap_success">¡Toque exitoso! Hora: %1$s</string>
+    <string name="notification_screen_on">Pantalla encendida - toca el teléfono dos veces para obtener la hora</string>
+    <string name="notification_screen_off">Pantalla apagada - toca el teléfono dos veces para obtener la hora</string>
+    <string name="notification_channel_name">Servicio de Vibración</string>
+    <string name="notification_channel_description">Detección de toques en segundo plano y reporte de tiempo por vibración</string>
+    <string name="notification_title">Vibtime Vibración de Tiempo</string>
+    
+    <!-- Language Options -->
+    <string name="language_system">Seguir Sistema</string>
+    <string name="language_zh_tw">Chino Tradicional</string>
+    <string name="language_en">Inglés</string>
+    <string name="language_zh_cn">Chino Simplificado</string>
+    <string name="language_ja">Japonés</string>
+    <string name="language_es">Español</string>
+    
+    <!-- Version -->
+    <string name="app_version">Vibtime v1.3</string>
+    
+    <!-- Home Fragment -->
+    <string name="btn_test_basic_vibration">Probar Vibración Básica</string>
+    <string name="btn_test_time_vibration">Probar Vibración de Tiempo</string>
+    <string name="btn_show_current_time">Mostrar Hora Actual</string>
+    <string name="btn_start_tap_detection">Iniciar Detección de Toques</string>
+    <string name="btn_start_background_service">Iniciar Servicio en Segundo Plano</string>
+    <string name="btn_check_tap_settings">Verificar Configuración de Toques</string>
+    <string name="tap_sensitivity_label">Sensibilidad de Toque: </string>
+    <string name="tap_detection_status">🎯 Estado de Detección de Toques</string>
+    <string name="status_not_started">No Iniciado</string>
+    <string name="tap_count_default">Cantidad de Toques: 0/2</string>
+    <string name="last_tap_default">Último Toque: --</string>
+    <string name="home_instructions">💡 Hito 3: Versión de Servicio en Segundo Plano\n\n🔸 Vibración Básica: 500ms vibración única\n🔸 Vibración de Tiempo: Patrón de vibración basado en la hora actual\n🔸 Detección de Toques: Elige sensibilidad, toca el teléfono 2 veces\n🔸 Servicio en Segundo Plano: Funciona incluso con pantalla apagada\n\n📱 Cómo Usar:\n1. Selecciona sensibilidad de toque\n2. Haz clic en \"Iniciar Servicio en Segundo Plano\"\n3. Apaga la pantalla\n4. Toca el teléfono 2 veces para obtener la hora\n\nVibración larga = Hora | Vibración corta = Minuto/5</string>
+    
+    <!-- Settings Fragment -->
+    <string name="general_settings">📋 Configuración General</string>
+    <string name="language_setting">🌍 Idioma</string>
+    <string name="vibration_settings">🔊 Configuración de Vibración</string>
+    <string name="vibration_duration">⏱️ Duración de Vibración</string>
+    <string name="service_notifications">🔔 Notificaciones del Servicio</string>
+    <string name="advanced_settings">🔧 Configuración Avanzada</string>
+    <string name="battery_optimization">🔋 Optimización de Batería</string>
+    <string name="about_section">ℹ️ Acerca de</string>
+    <string name="about_vibtime">📱 Acerca de Vibtime</string>
+    <string name="reset_all_settings">🔄 Restablecer Toda la Configuración</string>
+    <string name="arrow_right">></string>
+    
+    <!-- History Fragment -->
+    <string name="history_page_title">📊 Historial</string>
+    <string name="today_stats">📅 Hoy</string>
+    <string name="today_usage_fmt">Lanzamientos: %1$d | Vibraciones: %2$d</string>
+    <string name="last_vibration_fmt">Última vibración: %1$s</string>
+    <string name="last_use_default">Último uso: --</string>
+    <string name="week_stats">📈 Esta Semana</string>
+    <string name="week_usage_fmt">Esta semana: %1$d</string>
+    <string name="week_avg_fmt">Promedio: %1$d/día</string>
+    <string name="total_stats">🏆 Total</string>
+    <string name="total_usage_fmt">Total de lanzamientos: %1$d | Total de vibraciones: %2$d</string>
+    <string name="first_use_fmt">Primer uso: %1$s</string>
+    <string name="first_use_none">Primer uso: N/A</string>
+    <string name="history_usage_fmt">Usado %1$d veces</string>
+    <string name="history_time_check">Verificación de tiempo</string>
+    <string name="history_empty_title">Consejo</string>
+    <string name="history_empty_desc">Los registros de uso aparecerán aquí después de usar Vibtime</string>
+    <string name="clear_history_dialog_title">⚠️ Limpiar Registros de Uso</string>
+    <string name="clear_history_dialog_message">¿Estás seguro de que quieres limpiar todos los registros de uso?\n\nEsto eliminará:\n• Estadísticas de uso diario\n• Registros de historial\n• Registros de tiempo de uso\n\n¡Esta acción no se puede deshacer!</string>
+    <string name="clear_history_confirm">Limpiar</string>
+    <string name="history_title">📋 Historial</string>
+    <string name="clear_history">🗑️ Limpiar historial</string>
+    
+    <!-- Vibration Fragment -->
+    <string name="vibration_settings_title">🔊 Configuración de Vibración</string>
+    <string name="basic_vibration_settings">⚡ Configuración Básica</string>
+    <string name="basic_vibration_hint">Ajustar duración base de vibración</string>
+    <string name="duration_label">Duración: </string>
+    <string name="test_basic_vibration">Probar Vibración Básica</string>
+    <string name="time_vibration_settings">⏰ Configuración de Vibración de Tiempo</string>
+    <string name="time_vibration_hint">Ajustar duración de vibración de hora/minuto por separado</string>
+    <string name="hour_vibration_label">Vibración de hora: </string>
+    <string name="minute_vibration_label">Vibración de minuto: </string>
+    <string name="test_current_time">Probar Hora Actual</string>
+    <string name="custom_time_test">🎯 Prueba de Tiempo Personalizado</string>
+    <string name="custom_time_hint">Establecer una hora específica para probar</string>
+    <string name="hour_label">Hora: </string>
+    <string name="minute_label">Minuto: </string>
+    <string name="test_custom_time">Probar Tiempo Personalizado</string>
+    <string name="preview_title">📋 Vista Previa</string>
+    <string name="preview_loading">Cargando vista previa...</string>
+    
+    <!-- Running Fragment -->
+    <string name="service_center_title">⚡ Centro de Control del Servicio</string>
+    <string name="service_stopped">🔴 Servicio detenido</string>
+    <string name="service_running">🟢 Servicio ejecutándose</string>
+    <string name="uptime_placeholder">Tiempo activo: --</string>
+    <string name="start_service">Iniciar Servicio</string>
+    <string name="stop_service">Detener Servicio</string>
+    <string name="sensitivity_settings">🎯 Sensibilidad</string>
+    <string name="stats_title">📊 Estadísticas de Uso</string>
+    <string name="today_usage_fmt_label">Hoy: %1$d</string>
+    <string name="total_usage_fmt_label">Total: %1$d</string>
+    <string name="service_desc_long">💡 Notas:\n\n• Funciona con pantalla apagada\n• Toca el teléfono dos veces para obtener la hora\n• Ajusta la sensibilidad\n• Se ejecuta en segundo plano\n• Agrega a la lista blanca de batería para estabilidad</string>
+    
+    <!-- Toast Messages -->
+    <string name="toast_vibration_test_sent">Prueba de vibración enviada</string>
+    <string name="toast_service_started">Servicio iniciado</string>
+    <string name="toast_service_stopped">Servicio detenido</string>
+    <string name="toast_basic_vibration_test">Prueba de vibración básica: %1$dms</string>
+    <string name="toast_current_time_test">Prueba de vibración de hora actual: %1$s</string>
+    <string name="toast_custom_time_test">Prueba de vibración de tiempo personalizado: %1$s</string>
+    <string name="toast_dark_mode_enabled">Modo oscuro habilitado</string>
+    <string name="toast_dark_mode_disabled">Modo oscuro deshabilitado</string>
+    <string name="toast_vibration_duration_updated">Duración de vibración actualizada</string>
+    <string name="toast_notifications_enabled">Notificaciones habilitadas</string>
+    <string name="toast_notifications_disabled">Notificaciones deshabilitadas</string>
+    <string name="toast_settings_reset">Toda la configuración restablecida</string>
+    <string name="toast_auto_stop_enabled">Auto-detener de 3 horas habilitado</string>
+    <string name="toast_auto_stop_disabled">Auto-detener de 3 horas deshabilitado</string>
+    <string name="toast_frequency_limit_enabled">Límite de frecuencia habilitado</string>
+    <string name="toast_frequency_limit_disabled">Límite de frecuencia deshabilitado</string>
+    <string name="toast_test_mode_enabled">Modo de prueba habilitado</string>
+    <string name="toast_test_mode_disabled">Modo de prueba deshabilitado</string>
+    
+    <!-- Format strings and units -->
+    <string name="duration_format">%1$dms</string>
+    <string name="hour_format">%1$02d</string>
+    <string name="minute_format">%1$02d</string>
+    <string name="time_format_hour_minute">%1$02d:%2$02d</string>
+    <string name="date_format_yyyy_mm_dd">%1$d-%2$02d-%3$02d</string>
+    
+    <!-- Default values -->
+    <string name="default_duration_500ms">500ms</string>
+    <string name="default_duration_600ms">600ms</string>
+    <string name="default_duration_200ms">200ms</string>
+    <string name="default_hour_14">14</string>
+    <string name="default_minute_30">30</string>
+    
+    <!-- Icons -->
+    <string name="icon_phone">📱</string>
+    <string name="icon_arrow_right">></string>
+    
+    <!-- Example date and time -->
+    <string name="example_date">2024-01-01</string>
+    <string name="example_time">14:30</string>
+    
+    <!-- Time format -->
+    <string name="time_format_hh_mm_ss">%1$02d:%2$02d:%3$02d</string>
+    
+    <!-- Watch Mode -->
+    <string name="watch_mode_cooldown_active">Aún en período de enfriamiento: %1$d minutos restantes</string>
+    <string name="watch_mode_sensor_unavailable">Sensor acelerómetro no disponible</string>
+    <string name="watch_mode_sensor_failed">Error al registrar el listener del sensor</string>
+    <string name="watch_mode_started">Modo Watch iniciado por %1$d minutos</string>
+    <string name="watch_mode_stopped">Modo Watch detenido: %1$s</string>
+    <string name="watch_mode_timeout">tiempo agotado</string>
+    <string name="watch_mode_manual">manual</string>
+    <string name="watch_mode_vibration_triggered">vibración activada</string>
+    <string name="watch_mode_cleanup">limpieza</string>
+    <string name="notification_watch_mode_active">Modo Watch activo: %1$d minutos restantes</string>
+    <string name="notification_watch_mode_cooldown">Enfriamiento: %1$d minutos restantes</string>
+    
+    <!-- Simplified Home Screen -->
+    <string name="btn_test_vibration">Probar Vibración</string>
+    <string name="btn_start_service">Iniciar Servicio</string>
+    <string name="btn_stop_service">Detener Servicio</string>
+    <string name="home_instructions_simple">Toca los botones a continuación para controlar el servicio de vibración</string>
+    <string name="usage_instructions">Cómo usar:\n1. Toca \"Iniciar Servicio\" para habilitar la detección en segundo plano\n2. Toca tu teléfono dos veces para obtener la vibración de tiempo\n3. Funciona incluso con pantalla apagada\n4. El servicio se auto-detendrá después de 3 horas por seguridad</string>
+    
+    <!-- Safety Settings -->
+    <string name="safety_settings">Configuración de Seguridad</string>
+    <string name="auto_stop_enabled">Auto-detener después de 3 horas</string>
+    <string name="auto_stop_desc">Detener automáticamente el servicio después de 3 horas por seguridad</string>
+    <string name="frequency_limit_enabled">Límite de frecuencia (10 min)</string>
+    <string name="frequency_limit_desc">Limitar vibraciones a una vez por 10 minutos</string>
+    <string name="test_mode_enabled_setting">Modo de prueba (5 min)</string>
+    <string name="test_mode_desc">Habilitar modo de prueba con límites de tiempo más cortos</string>
+    
+    <!-- Premium Purchase -->
+    <string name="premium_section">Características Premium</string>
+    <string name="premium_binary_title">Reporte de Tiempo Binario</string>
+    <string name="premium_binary_desc">Obtén la hora en formato binario usando vibraciones cortas y largas</string>
+    <string name="premium_binary_price">$0.99</string>
+    <string name="premium_binary_owned">Propiedad</string>
+    <string name="premium_morse_title">Reporte de Tiempo en Código Morse</string>
+    <string name="premium_morse_desc">Obtén la hora en código Morse usando puntos y rayas</string>
+    <string name="premium_morse_price">$0.99</string>
+    <string name="premium_morse_owned">Propiedad</string>
+    <string name="premium_feature_default">Característica Premium</string>
+    <string name="premium_no_ads">Sin Anuncios</string>
+    <string name="premium_lifetime">De por Vida</string>
+    <string name="premium_purchase_title">Actualizar a Premium</string>
+    <string name="premium_purchase_message">¡Desbloquea modos avanzados de reporte de tiempo y elimina todos los anuncios!</string>
+    <string name="premium_purchase_later">Tal vez Más Tarde</string>
+    <string name="premium_purchase_buy">Comprar Ahora</string>
+    <string name="premium_purchase_price_label">Precio</string>
+    <string name="premium_purchase_success">¡Compra exitosa!</string>
+    <string name="premium_purchase_failed">Error en la compra. Por favor, inténtalo de nuevo.</string>
+    
+    <!-- Dialog Titles -->
+    <string name="dialog_battery_optimization_title">🔋 Configuración de Optimización de Batería</string>
+    <string name="dialog_about_title">Acerca de Vibtime</string>
+    <string name="dialog_ok">OK</string>
+    <string name="dialog_understand">Entender</string>
+    
+    <!-- Vibration Duration Dialog -->
+    <string name="vibration_duration_dialog_title">Configuración de Duración de Vibración</string>
+    <string name="vibration_duration_short">Corta (300ms)</string>
+    <string name="vibration_duration_medium">Media (500ms)</string>
+    <string name="vibration_duration_long">Larga (800ms)</string>
+    <string name="vibration_duration_extra_long">Extra Larga (1200ms)</string>
+    <string name="vibration_duration_current_short">Corta</string>
+    <string name="vibration_duration_current_medium">Media</string>
+    <string name="vibration_duration_current_long">Larga</string>
+    <string name="vibration_duration_current_extra_long">Extra Larga</string>
+    
+    <!-- Notifications -->
+    <string name="notif_channel_vibration">Servicio de Vibración</string>
+    <string name="notif_channel_general">General</string>
+    <string name="notif_channel_alerts">Alertas</string>
+    <string name="notif_desc_vibration">Muestra el estado del servicio de vibración</string>
+    <string name="notif_desc_general">Notificaciones generales de la aplicación</string>
+    <string name="notif_desc_alerts">Recordatorios importantes y alertas</string>
+    <string name="notif_vibration_running">El servicio de vibración está ejecutándose</string>
+    <string name="notif_tap_hint">Toca la pantalla para obtener la hora</string>
+    <string name="notif_time_alert">Alerta de Tiempo</string>
+    <string name="notif_permission_title">Recordatorio de Permiso</string>
+    <string name="notif_permission_text">Algunas características requieren permiso de notificación</string>
+    
+    <!-- Safety Mechanism -->
+    <string name="notif_auto_stop_warning_title">Recordatorio del Servicio Vibtime</string>
+    <string name="notif_auto_stop_warning_text">El servicio se auto-detendrá en 15 minutos para ahorrar batería</string>
+    <string name="notif_auto_stop_title">Servicio Vibtime Detenido</string>
+    <string name="notif_auto_stop_text">El servicio se auto-detuvó después de 3 horas para ahorrar batería</string>
+    <string name="notif_frequency_limit_title">Límite de Uso</string>
+    <string name="notif_frequency_limit_text">Por favor espera %1$d minutos antes del siguiente uso</string>
+    <string name="notif_safety_info_next_vibration">Siguiente disponible: %1$d minutos</string>
+    <string name="notif_safety_info_remaining_time">Tiempo restante: %1$d horas %2$d minutos</string>
+    
+    <!-- Enhanced Safety Mechanism -->
+    <string name="safety_timer_title">⏰ Temporizador de Seguridad</string>
+    <string name="safety_timer_placeholder">--:--</string>
+    <string name="safety_timer_desc">El servicio se auto-detendrá para ahorrar batería</string>
+    <string name="next_vibration_title">🔄 Siguiente Vibración</string>
+    <string name="next_vibration_placeholder">--:--</string>
+    <string name="safety_emergency_stop">🛑 Detención de Emergencia</string>
+    <string name="safety_test_mode">🧪 Modo de Prueba</string>
+    <string name="safety_normal_mode">⚡ Modo Normal</string>
+    <string name="safety_remaining_time_fmt" formatted="false">%1$d:%02d</string>
+    <string name="safety_next_vibration_fmt" formatted="false">%1$d:%02d</string>
+    <string name="safety_service_expired">Servicio expirado</string>
+    <string name="safety_frequency_limit">Límite de frecuencia</string>
+    <string name="safety_auto_stop_soon">Auto-detener en %1$d minutos</string>
+    <string name="safety_auto_stopped">Servicio auto-detenido</string>
+    <string name="test_mode_enabled">Modo de prueba habilitado (5 min)</string>
+    <string name="normal_mode_enabled">Modo normal habilitado (3 horas)</string>
+    <string name="service_emergency_stopped">Servicio detenido por emergencia</string>
+    <string name="uptime_fmt">Tiempo activo: %1$s</string>
+    
+    <!-- Language Change Dialog -->
+    <string name="language_dialog_title">Seleccionar Idioma / 選擇語言</string>
+    <string name="language_changed_title">Idioma Cambiado</string>
+    <string name="language_changed_message">La aplicación necesita reiniciarse para aplicar los cambios de idioma.</string>
+    <string name="restart_now">Reiniciar Ahora</string>
+    <string name="restart_later">Más Tarde</string>
+    <string name="cancel">Cancelar</string>
+    <string name="restart_error">No se puede reiniciar la aplicación</string>
+    
+    <!-- Reset Dialog -->
+    <string name="reset_dialog_title">⚠️ Restablecer Toda la Configuración</string>
+    <string name="reset_dialog_message">¿Estás seguro de que quieres restablecer toda la configuración? Esto limpiará:\n\n• Configuración de idioma\n• Configuración de sensibilidad\n• Estadísticas de uso\n• Todas las preferencias personales\n\n¡Esta acción no se puede deshacer!</string>
+    <string name="reset_confirm">Restablecer</string>
+    
+    <!-- Permission Messages -->
+    <string name="permission_vibrate_desc">Se necesita permiso de vibración para el reporte de tiempo por vibración</string>
+    <string name="permission_wake_lock_desc">Se necesita permiso de bloqueo de activación para mantener la pantalla activa</string>
+    <string name="permission_foreground_service_desc">Se necesita permiso de servicio en primer plano para ejecutar el servicio de vibración en segundo plano</string>
+    <string name="permission_notification_desc">Se necesita permiso de notificación para mostrar notificaciones del servicio de vibración</string>
+    <string name="permission_notification_title">Permiso de Notificación</string>
+    <string name="permission_notification_rationale">Vibtime necesita permiso de notificación para mostrar el estado del servicio de vibración y alertas de tiempo. Esto te ayuda a saber cuándo el servicio está ejecutándose y recibir notificaciones de tiempo.</string>
+    <string name="permission_notification_denied_title">Se Requiere Permiso de Notificación</string>
+    <string name="permission_notification_denied_message">Se requiere permiso de notificación para que Vibtime funcione correctamente. Por favor, habilítalo en Configuración para recibir notificaciones del servicio de vibración y alertas de tiempo.</string>
+    <string name="permission_general_desc">Esta característica requiere permisos relacionados para funcionar correctamente</string>
+    <string name="permission_explanation_title">Explicación de Permisos</string>
+    <string name="permission_grant">Otorgar Permiso</string>
+    <string name="permission_denied_title">Permiso Denegado</string>
+    <string name="permission_denied_message">Algunas características requieren permisos para funcionar correctamente. Por favor, habilita manualmente los permisos en configuración.</string>
+    <string name="permission_go_to_settings">Ir a Configuración</string>
+    
+    <!-- Battery Optimization Messages -->
+    <string name="battery_optimization_title">Optimización de Batería</string>
+    <string name="battery_optimization_message">Para asegurar que el servicio de vibración pueda ejecutarse normalmente en segundo plano, se recomienda agregar Vibtime a la lista blanca de optimización de batería.</string>
+    <string name="battery_optimization_go_settings">Ir a Configuración</string>
+    <string name="battery_optimization_later">Más Tarde</string>
+    <string name="battery_optimization_enabled_title">Optimización de Batería Habilitada</string>
+    <string name="battery_optimization_enabled_message">Vibtime ha sido agregado a la lista blanca de optimización de batería, el servicio de vibración podrá ejecutarse normalmente en segundo plano.</string>
+    <string name="battery_optimization_status_enabled">Habilitado (el servicio de vibración puede ejecutarse normalmente)</string>
+    <string name="battery_optimization_status_disabled">No habilitado (puede afectar el servicio en segundo plano)</string>
+    <string name="power_save_warning_title">Advertencia de Modo de Ahorro de Energía</string>
+    <string name="power_save_warning_message">Se detectó que el dispositivo está en modo de ahorro de energía, lo que puede afectar el funcionamiento normal del servicio de vibración. Se recomienda desactivar el modo de ahorro de energía para la mejor experiencia.</string>
+    <string name="battery_issue_not_optimized">Por favor agrega Vibtime a la lista blanca de optimización de batería</string>
+    <string name="battery_issue_power_save">Por favor desactiva el modo de ahorro de energía para la mejor experiencia</string>
+    
+    <!-- Tap Detection Messages -->
+    <string name="tap_detection_accelerometer_unavailable">Sensor acelerómetro no disponible</string>
+    <string name="tap_detection_started">Detección de toques iniciada - Sensibilidad: %1$s, Toques requeridos: %2$d</string>
+    <string name="tap_detection_stopped">Detección de toques detenida</string>
+    <string name="tap_detection_sensitivity_set">Sensibilidad de toque establecida en: %1$s</string>
+    <string name="tap_detection_required_taps_set">Cantidad de toques requeridos establecida en: %1$d</string>
+    <string name="tap_detection_tap_detected">Toque detectado %1$d/%2$d</string>
+    <string name="tap_detection_tap_completed">¡Toque completado! Activando vibración de tiempo</string>
+    <string name="tap_detection_reset_count">Restablecer cantidad de toques</string>
+    <string name="tap_detection_status_format">Sensibilidad: %1$s, Cantidad de toques: %2$d, Estado: %3$s</string>
+    <string name="tap_detection_status_enabled">Habilitado</string>
+    <string name="tap_detection_status_disabled">Deshabilitado</string>
+    
+    <!-- Missing String Resources -->
+    <string name="auto_stop">Auto Detener</string>
+    <string name="basic_duration">Duración Básica</string>
+    <string name="custom_hour">Hora Personalizada</string>
+    <string name="custom_minute">Minuto Personalizado</string>
+    <string name="dark_mode">Modo Oscuro</string>
+    <string name="emergency_stop">Detención de Emergencia</string>
+    <string name="frequency_limit">Límite de Frecuencia</string>
+    <string name="hour_vibration">Vibración de Hora</string>
+    <string name="max_taps">Máximo de Toques</string>
+    <string name="minute_vibration">Vibración de Minuto</string>
+    <string name="notifications">Notificaciones</string>
+    <string name="remaining_time">Tiempo Restante</string>
+    <string name="reset_settings">Restablecer Configuración</string>
+    <string name="safety_timer">Temporizador de Seguridad</string>
+    <string name="sensitivity">Sensibilidad</string>
+    <string name="service_status">Estado del Servicio</string>
+    <string name="test_basic">Probar Básico</string>
+    <string name="test_mode">Modo de Prueba</string>
+    <string name="test_vibration">Probar Vibración</string>
+    <string name="toast_vibration_duration_changed">Duración de vibración cambiada: %1$s</string>
+</resources>

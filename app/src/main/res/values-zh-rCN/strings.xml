@@ -1,0 +1,335 @@
+<resources>
+    <!-- App 基本資訊 -->
+    <string name="app_name">Vibtime</string>
+    <string name="app_subtitle">震动报时器</string>
+    
+    <!-- Navigation -->
+    <string name="nav_welcome">欢迎</string>
+    <string name="nav_home">首页</string>
+    <string name="nav_vibration">震动</string>
+    <string name="nav_history">历史</string>
+    <string name="nav_settings">设置</string>
+    <string name="nav_running">运行中</string>
+    
+    <!-- Welcome Page -->
+    <string name="welcome_title">Vibtime</string>
+    <string name="welcome_subtitle">震动报时服务</string>
+    <string name="welcome_features_title">核心功能</string>
+    <string name="welcome_feature_1">• 轻敲手机两次获得震动报时</string>
+    <string name="welcome_feature_2">• 屏幕关闭时也能使用</string>
+    <string name="welcome_feature_3">• 无需查看屏幕</string>
+    <string name="welcome_feature_4">• 适合安静环境</string>
+    <string name="welcome_scenarios_title">适用场景</string>
+    <string name="welcome_scenario_1">• 睡前 - 不开灯查看时间</string>
+    <string name="welcome_scenario_2">• 会议中 - 低调查看时间</string>
+    <string name="welcome_scenario_3">• 黑暗环境</string>
+    <string name="welcome_scenario_4">• 手忙时</string>
+    <string name="welcome_get_started">开始使用</string>
+    
+    <!-- Home Page -->
+    <string name="home_title">震动报时</string>
+    <string name="hourly_vibration">整点震动</string>
+    <string name="half_hour_vibration">半点震动</string>
+    <string name="countdown_timer">倒计时</string>
+    <string name="vibration_mode">震动模式</string>
+    <string name="btn_set">设置</string>
+    <string name="btn_start_timekeeping">开始报时</string>
+    
+    <!-- Vibration Page -->
+    <string name="vibration_title">震动模式设置</string>
+    <string name="vibration_length">震动长度</string>
+    <string name="vibration_count">震动次数</string>
+    <string name="vibration_interval">间隔时间</string>
+    <string name="vibration_preview">预览：</string>
+    <string name="btn_save_settings">保存设置</string>
+    <string name="time_vibration_rule">时间震动规则</string>
+    <string name="rule_default">默认：</string>
+    <string name="rule_hour">小时：长震动，次数 = 小时数</string>
+    <string name="rule_minute">分钟：短震动，每5分钟一次，次数 = (分钟数/5)</string>
+    <string name="btn_customize_rule">自定义规则</string>
+    
+    <!-- History Page -->
+    <string name="btn_clear_history">清除历史</string>
+    
+    <!-- Settings Page -->
+    <string name="settings_title">设置</string>
+    <string name="language">语言</string>
+    <string name="night_mode">夜间模式</string>
+    <string name="do_not_disturb">勿扰模式</string>
+    <string name="about">关于</string>
+    <!-- Tap Settings -->
+    <string name="tap_to_vibrate">敲击震动</string>
+    <string name="tap_count">敲击次数</string>
+    <string name="tap_sensitivity">敲击灵敏度</string>
+    <string name="btn_test_tap">测试敲击</string>
+    
+    <!-- Running Page -->
+    <string name="running_title">运行中</string>
+    <string name="current_time">当前时间：</string>
+    <string name="next_vibration">下次震动：</string>
+    <string name="vibrating">震动中...</string>
+    <string name="btn_stop">停止</string>
+    
+    <!-- Vibration Instructions -->
+    <string name="vibration_instructions_title">震动说明</string>
+    <string name="vibration_instructions_content">震动会分别提示现在的「小时」与「分钟数」。\n\n目前为节省电力与避免过长震动，每 5 分钟为一单位，例如：\n• 3 点 12 分 → 震动 3 次长震动，代表 3 点\n• 间隔后再震动 2 次短震动，代表 10 分（最接近的五分钟）\n\n稍后将提供更高精度的震动模式可选。</string>
+    
+    <!-- Common -->
+    <string name="btn_save">保存</string>
+    <string name="btn_cancel">取消</string>
+    <string name="btn_test">测试</string>
+    <string name="btn_ok">确定</string>
+    
+    <!-- Units -->
+    <string name="unit_ms">毫秒</string>
+    <string name="unit_min">分钟</string>
+    
+    <!-- Sensitivity -->
+    <string name="sensitivity_low">低</string>
+    <string name="sensitivity_medium">中</string>
+    <string name="sensitivity_high">高</string>
+    
+    <!-- Language Options -->
+    <string name="language_system">跟随系统</string>
+    <string name="language_zh_tw">繁体中文</string>
+    <string name="language_en">English</string>
+    <string name="language_zh_cn">简体中文</string>
+    <string name="language_ja">日本語</string>
+    
+    <!-- Ad Related -->
+    <string name="ad_fallback_message">谢谢您的支持！如果您喜欢这个应用，请给我们一个评价</string>
+    <string name="rate_app">评价</string>
+    <string name="ad_loading">广告加载中...</string>
+    <string name="ad_failed_to_load">广告加载失败</string>
+    
+    <!-- Language Change Dialog -->
+    <string name="language_dialog_title">选择语言 / Choose Language</string>
+    <string name="language_changed_title">语言已更改</string>
+    <string name="language_changed_message">需要重新启动应用程序以应用语言更改。</string>
+    <string name="restart_now">立即重启</string>
+    <string name="restart_later">稍后重启</string>
+    <string name="cancel">取消</string>
+    <string name="restart_error">无法重新启动应用程序</string>
+    
+    <!-- Version -->
+    <string name="app_version">Vibtime v1.1</string>
+    
+    <!-- Home Fragment -->
+    <string name="btn_test_basic_vibration">测试基本震动</string>
+    <string name="btn_test_time_vibration">测试时间震动</string>
+    <string name="btn_show_current_time">显示当前时间</string>
+    <string name="btn_start_tap_detection">启动敲击检测</string>
+    <string name="btn_start_background_service">启动背景服务</string>
+    <string name="btn_check_tap_settings">检查敲击设置</string>
+    <string name="tap_sensitivity_label">敲击灵敏度: </string>
+    <string name="tap_detection_status">🎯 敲击检测状态</string>
+    <string name="status_not_started">未启动</string>
+    <string name="tap_count_default">敲击计数: 0/2</string>
+    <string name="last_tap_default">上次敲击: --</string>
+    <string name="home_instructions">💡 里程碑 3：背景服务版本\n\n🔸 基本震动：500ms 单次震动\n🔸 时间震动：根据当前时间产生震动模式\n🔸 敲击检测：选择灵敏度，轻敲手机 2 次\n🔸 背景服务：屏幕关闭时也能敲击报时\n\n📱 使用方式：\n1. 选择敲击灵敏度\n2. 点击「启动背景服务」\n3. 关闭屏幕\n4. 敲击手机 2 次获得时间\n\n长震动 = 小时数 | 短震动 = 分钟数/5</string>
+    
+    <!-- Settings Fragment -->
+    <string name="general_settings">📋 一般设置</string>
+    <string name="language_setting">🌍 语言</string>
+    <string name="vibration_settings">🔊 震动设置</string>
+    <string name="vibration_duration">⏱️ 震动时长</string>
+    <string name="service_notifications">🔔 服务通知</string>
+    <string name="advanced_settings">🔧 高级设置</string>
+    <string name="battery_optimization">🔋 电池优化设置</string>
+    <string name="about_section">ℹ️ 关于</string>
+    <string name="about_vibtime">📱 关于 Vibtime</string>
+    <string name="reset_all_settings">🔄 重置所有设置</string>
+    <string name="arrow_right">></string>
+    
+    <!-- History Fragment -->
+    <string name="history_page_title">📊 使用记录</string>
+    <string name="today_stats">📅 今日统计</string>
+    <string name="today_usage_fmt">启动次数: %1$d | 震动次数: %2$d</string>
+    <string name="last_vibration_fmt">最后震动: %1$s</string>
+    <string name="last_use_default">最后使用: --</string>
+    <string name="week_stats">📈 本周统计</string>
+    <string name="week_usage_fmt">本周使用: %1$d 次</string>
+    <string name="week_avg_fmt">周平均: %1$d 次/天</string>
+    <string name="total_stats">🏆 总计统计</string>
+    <string name="total_usage_fmt">总启动: %1$d | 总震动: %2$d</string>
+    <string name="first_use_fmt">首次使用: %1$s</string>
+    <string name="first_use_none">首次使用: 未记录</string>
+    <string name="history_usage_fmt">使用 %1$d 次</string>
+    <string name="history_time_check">查看时间</string>
+    <string name="history_empty_title">提示</string>
+    <string name="history_empty_desc">开始使用 Vibtime 后这里会显示使用记录</string>
+    <string name="clear_history_dialog_title">⚠️ 清除使用记录</string>
+    <string name="clear_history_dialog_message">确定要清除所有使用记录吗？\n\n这将会删除：\n• 每日使用统计\n• 历史记录\n• 使用时间记录\n\n此操作无法复原！</string>
+    <string name="clear_history_confirm">确定清除</string>
+    <string name="history_title">📋 使用历史</string>
+    <string name="clear_history">🗑️ 清除使用记录</string>
+
+    <!-- Vibration Fragment -->
+    <string name="vibration_settings_title">🔊 震动设置</string>
+    <string name="basic_vibration_settings">⚡ 基本震动设置</string>
+    <string name="basic_vibration_hint">调整基本震动的时长</string>
+    <string name="duration_label">时长: </string>
+    <string name="test_basic_vibration">测试基本震动</string>
+    <string name="time_vibration_settings">⏰ 时间震动设置</string>
+    <string name="time_vibration_hint">分别调整小时和分钟震动的时长</string>
+    <string name="hour_vibration_label">小时震动: </string>
+    <string name="minute_vibration_label">分钟震动: </string>
+    <string name="test_current_time">测试当前时间</string>
+    <string name="custom_time_test">🎯 自定义时间测试</string>
+    <string name="custom_time_hint">设置特定时间来测试震动效果</string>
+    <string name="hour_label">小时: </string>
+    <string name="minute_label">分钟: </string>
+    <string name="test_custom_time">测试自定义时间</string>
+    <string name="preview_title">📋 震动模式预览</string>
+    <string name="preview_loading">预览内容载入中...</string>
+
+    <!-- Running Fragment -->
+    <string name="service_center_title">⚡ 服务控制中心</string>
+    <string name="service_stopped">🔴 背景服务已停止</string>
+    <string name="service_running">🟢 背景服务运行中</string>
+    <string name="uptime_placeholder">运行时间: --</string>
+    <string name="start_service">启动服务</string>
+    <string name="stop_service">停止服务</string>
+    <string name="sensitivity_settings">🎯 敲击敏感度设置</string>
+    <string name="stats_title">📊 使用统计</string>
+    <string name="today_usage_fmt_label">今日启动: %1$d 次</string>
+    <string name="total_usage_fmt_label">总计使用: %1$d 次</string>
+    <string name="service_desc_long">💡 服务控制说明：\n\n• 启动服务后可关闭屏幕使用\n• 敲击手机 2 次获得震动报时\n• 调整敏感度适应个人习惯\n• 服务会在后台持续运行\n• 建议加入省电白名单确保稳定</string>
+    
+    <!-- Notifications -->
+    <string name="notif_channel_vibration">震动服务</string>
+    <string name="notif_channel_general">一般通知</string>
+    <string name="notif_channel_alerts">提醒通知</string>
+    <string name="notif_desc_vibration">显示震动服务的运行状态</string>
+    <string name="notif_desc_general">一般应用通知</string>
+    <string name="notif_desc_alerts">重要提醒与警告</string>
+    <string name="notif_vibration_running">震动报时服务运行中</string>
+    <string name="notif_tap_hint">轻敲屏幕即可获取当前时间</string>
+    <string name="notif_time_alert">时间提醒</string>
+    <string name="notif_permission_title">权限提醒</string>
+    <string name="notif_permission_text">某些功能需要通知权限才能正常运行</string>
+    
+    <!-- Permission Messages -->
+    <string name="permission_vibrate_desc">震动权限用于震动报时功能</string>
+    <string name="permission_wake_lock_desc">唤醒锁权限用于保持屏幕唤醒</string>
+    <string name="permission_foreground_service_desc">前台服务权限用于在后台运行震动服务</string>
+    <string name="permission_notification_desc">通知权限用于显示震动服务通知</string>
+    <string name="permission_notification_title">通知权限</string>
+    <string name="permission_notification_rationale">Vibtime 需要通知权限来显示震动服务状态和时间提醒。这有助于您了解服务运行状态并接收时间通知。</string>
+    <string name="permission_notification_denied_title">需要通知权限</string>
+    <string name="permission_notification_denied_message">Vibtime 需要通知权限才能正常工作。请在设置中启用它以接收震动服务通知和时间提醒。</string>
+    <string name="permission_general_desc">此功能需要相关权限才能正常工作</string>
+    <string name="permission_explanation_title">权限说明</string>
+    <string name="permission_grant">授予权限</string>
+    <string name="permission_denied_title">权限被拒绝</string>
+    <string name="permission_denied_message">某些功能需要权限才能正常工作。请在设置中手动启用权限。</string>
+    <string name="permission_go_to_settings">前往设置</string>
+    
+    <!-- Service Management -->
+    <string name="service_start_dialog_title">启动震动服务</string>
+    <string name="service_start_dialog_message">震动服务将在后台运行以检测敲击并提供时间震动。此服务将显示通知并可能消耗电池电量。</string>
+    <string name="service_start_confirm">启动服务</string>
+    <string name="service_permissions_missing_title">需要权限</string>
+    <string name="service_permissions_missing_message">启动震动服务需要以下权限：\n\n• %1$s\n\n请在设置中启用这些权限。</string>
+    
+    <!-- Safety Mechanism -->
+    <string name="notif_auto_stop_warning_title">Vibtime 服务提醒</string>
+    <string name="notif_auto_stop_warning_text">服务将在15分钟后自动停止以节省电量</string>
+    <string name="notif_auto_stop_title">Vibtime 服务已停止</string>
+    <string name="notif_auto_stop_text">已运行3小时，为节省电量自动停止</string>
+    <string name="notif_frequency_limit_title">使用限制</string>
+    <string name="notif_frequency_limit_text">请等待 %1$d 分钟后再使用</string>
+    <string name="notif_safety_info_next_vibration">下次可触发: %1$d 分钟后</string>
+    <string name="notif_safety_info_remaining_time">剩余时间: %1$d 小时 %2$d 分钟</string>
+    <!-- Enhanced Safety Mechanism -->
+    <string name="safety_timer_title">⏰ 安全计时器</string>
+    <string name="safety_timer_placeholder">--:--</string>
+    <string name="safety_timer_desc">服务将自动停止以节省电量</string>
+    <string name="next_vibration_title">🔄 下次震动</string>
+    <string name="next_vibration_placeholder">--:--</string>
+    <string name="safety_emergency_stop">🛑 紧急停止</string>
+    <string name="safety_test_mode">🧪 测试模式</string>
+    <string name="safety_normal_mode">⚡ 正常模式</string>
+    <string name="safety_remaining_time_fmt" formatted="false">%1$d:%02d</string>
+    <string name="safety_next_vibration_fmt" formatted="false">%1$d:%02d</string>
+    <string name="safety_service_expired">服务已过期</string>
+    <string name="safety_frequency_limit">频率限制</string>
+    <string name="safety_auto_stop_soon">将在 %1$d 分钟后自动停止</string>
+    <string name="safety_auto_stopped">服务已自动停止</string>
+    <string name="test_mode_enabled">测试模式已启用 (5分钟)</string>
+    <string name="normal_mode_enabled">正常模式已启用 (3小时)</string>
+    <string name="service_emergency_stopped">服务已紧急停止</string>
+    <string name="uptime_fmt">运行时间: %1$s</string>
+    
+    <!-- Simplified Home Screen -->
+    <string name="btn_test_vibration">测试震动</string>
+    <string name="btn_start_service">开始服务</string>
+    <string name="btn_stop_service">停止服务</string>
+    <string name="home_instructions_simple">点击下方按钮来控制震动服务</string>
+    <string name="usage_instructions">使用方法：\n1. 点击「开始服务」启用背景侦测\n2. 轻敲手机两次获得震动报时\n3. 屏幕关闭时也能使用\n4. 服务会在3小时后自动停止以确保安全</string>
+    
+    <!-- Safety Settings -->
+    <string name="safety_settings">安全设置</string>
+    <string name="auto_stop_enabled">3小时后自动停止</string>
+    <string name="auto_stop_desc">3小时后自动停止服务以确保安全</string>
+    <string name="frequency_limit_enabled">频率限制 (10分钟)</string>
+    <string name="frequency_limit_desc">限制震动为每10分钟一次</string>
+    <string name="test_mode_enabled_setting">测试模式 (5分钟)</string>
+    <string name="test_mode_desc">启用测试模式，时间限制较短</string>
+    
+    <!-- Premium Purchase -->
+    <string name="premium_section">进阶功能</string>
+    <string name="premium_binary_title">二进制报时</string>
+    <string name="premium_binary_desc">使用短长震动获得二进制格式的时间</string>
+    <string name="premium_binary_price">$0.99</string>
+    <string name="premium_binary_owned">已拥有</string>
+    <string name="premium_morse_title">摩斯电码报时</string>
+    <string name="premium_morse_desc">使用点划获得摩斯电码格式的时间</string>
+    <string name="premium_morse_price">$0.99</string>
+    <string name="premium_morse_owned">已擁有</string>
+    <string name="premium_feature_default">進階功能</string>
+    <string name="premium_no_ads">无广告</string>
+    <string name="premium_lifetime">终身</string>
+    <string name="premium_purchase_title">升级到进阶版</string>
+    <string name="premium_purchase_message">解锁进阶报时模式并移除所有广告！</string>
+    <string name="premium_purchase_later">稍后再说</string>
+    <string name="premium_purchase_buy">立即購買</string>
+    <string name="premium_purchase_success">购买成功！</string>
+    <string name="premium_purchase_failed">购买失败，请重试。</string>
+    <string name="premium_purchase_price_label">價格</string>
+    
+    <!-- 格式化字串和單位 -->
+    <string name="duration_format">%1$dms</string>
+    <string name="hour_format">%1$02d</string>
+    <string name="minute_format">%1$02d</string>
+    <string name="time_format_hour_minute">%1$02d:%2$02d</string>
+    <string name="date_format_yyyy_mm_dd">%1$d-%2$02d-%3$02d</string>
+    
+    <!-- 預設值 -->
+    <string name="default_duration_500ms">500ms</string>
+    <string name="default_duration_600ms">600ms</string>
+    <string name="default_duration_200ms">200ms</string>
+    <string name="default_hour_14">14</string>
+    <string name="default_minute_30">30</string>
+    
+    <!-- 圖示 -->
+    <string name="icon_phone">📱</string>
+    <string name="icon_arrow_right">></string>
+    
+    <!-- 示例日期和時間 -->
+    <string name="example_date">2024-01-01</string>
+    <string name="example_time">14:30</string>
+    
+    <!-- 時間格式 -->
+    <string name="time_format_hh_mm_ss">%1$02d:%2$02d:%3$02d</string>
+    
+    <!-- Vibration Duration Options -->
+    <string name="vibration_duration_short">短 (300ms)</string>
+    <string name="vibration_duration_medium">中 (500ms)</string>
+    <string name="vibration_duration_long">長 (800ms)</string>
+    <string name="vibration_duration_extra_long">超長 (1200ms)</string>
+    <string name="vibration_duration_current_short">短</string>
+    <string name="vibration_duration_current_medium">中</string>
+    <string name="vibration_duration_current_long">長</string>
+    <string name="vibration_duration_current_extra_long">超長</string>
+</resources>
